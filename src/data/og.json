@@ -1,0 +1,13 @@
+{
+ "accent": "#3B4A6B",
+ "symbol": "SC",
+ "variants": [
+  {
+   "file": "og-en.png",
+   "title": "Small claims court limits\nby state, read from the law",
+   "subtitle": "50 states + DC · limit · court · filing fee · can I sue for $X?",
+   "badge": "Statutes and court fee schedules read November 2026",
+   "brand": "Small Claims By State"
+  }
+ ]
+}

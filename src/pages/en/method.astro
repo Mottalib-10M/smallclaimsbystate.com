@@ -1,0 +1,51 @@
+---
+/** Method: what was read, how each figure is used, a worked example, the limits. Figures from the engine. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { STATES, N_STATES, RETRIEVED, st, check, feeFor } from '../../lib/engine/claims';
+import { usd, day } from '../../lib/fmt';
+import { table } from '../../lib/helpers';
+import { VALUE } from '../../content/home';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+const lang = 'en';
+const path = route('method', lang);
+const title = 'Small Claims Limits Method 2026: How Each State Was Read';
+const description = 'How the small claims limits and fees on this site were read in 2026: statute text, court pages or the official page as indexed, with the date, law and limits.';
+const n = (r: string) => STATES.filter((s) => s.read === r).length;
+const nFee = STATES.filter((s) => s.fee).length;
+const CA = st('CA');
+const ex = check(CA, 4000, 'person');
+const exB = check(CA, 4000, 'business');
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'How we read the laws', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'How we read the laws', path }])]} breadcrumbs={[{ label: 'How we read the laws' }]}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>How we read the small claims laws</h1>
+    <p><strong>Every limit on this site comes from the statute or court rule of the state, read on an official site on {day(RETRIEVED)}, and every page computes its figures from one data file built from those readings. Nothing is a legal opinion and nothing updates by itself.</strong></p>
+    <p>{VALUE}</p>
+    <h2>1. The limit of {N_STATES} jurisdictions</h2>
+    <p>For each of the 50 states and the District of Columbia we looked for the text that sets the ceiling: a statute, a court rule or, where a law changed recently, the bill as signed. Each row of the data file keeps the citation, the address of the page read, the court that hears the case and one of three reading marks:</p>
+    <ul>
+      <li><strong>statute text read</strong> ({n('statute')} jurisdictions): we downloaded the statute or rule from the legislature’s or the court’s site and read the figure in it;</li>
+      <li><strong>court page read</strong> ({n('court')}): we read the court system’s own self-help or fee page, which states the limit and cites the law;</li>
+      <li><strong>official page read</strong> ({n('index')}): the state site refused our connection or returned an error, and we read the same official page through a search engine limited to that state’s own domain. We did not work around any refusal.</li>
+    </ul>
+    <p>Lists published by law firms, legal-forms sites and blogs were read only to find out what readers are told, never to take a number. Where they disagree with the statute, the statute wins and the page says so.</p>
+    <h2>2. Scheduled changes and special limits</h2>
+    <p>Where a law already sets a future figure, the row keeps it with its start date (Georgia from January 1, 2027, Utah from January 1, 2030), and the checker asks when you will file. Where a state sets a lower figure for businesses (California, Washington), the row keeps both. Limits that depend on the kind of claim, such as Wisconsin’s $5,000 for torts, are explained in the state’s note rather than computed.</p>
+    <h2>3. Filing fees</h2>
+    <p>A fee is shown only where a court publishes a statewide schedule we could read: {nFee} jurisdictions. Each fee keeps its steps by amount. Where the fee is set by the county or the parish, the site says so and gives no figure; the clerk of the court is the source.</p>
+    <h2>4. A worked example</h2>
+    <p>A person in California claims {usd(4000)}. California’s limit for a natural person is {usd(CA.cap)}, so the claim fits with {usd(ex.room)} to spare, and the fee step for a claim between $1,500.01 and $5,000 is {usd(feeFor(CA, 4000)!)}. A business with the same claim meets the {usd(CA.capBiz!)} limit for entities: it fits too, with {usd(exB.room)} left.</p>
+    <Fragment set:html={table(['Step', 'Person', 'Business'], [['Amount claimed', usd(4000), usd(4000)], ['Limit that applies', usd(ex.cap), usd(exB.cap)], ['Fits?', ex.fits ? 'yes' : 'no', exB.fits ? 'yes' : 'no'], ['Room left', usd(ex.room), usd(exB.room)], ['Filing fee', usd(ex.fee!), usd(exB.fee!)]], 'The example, step by step', ['l', 'r', 'r'])} />
+    <h2>5. The other calculators</h2>
+    <p>The cost, interest, collection and deadline calculators do arithmetic on the figures you enter: they add fees and hours, apply simple interest month by month, divide a balance by a monthly payment, and subtract months from a period. They do not know your state’s interest rate, exemptions or limitation period, and they say so.</p>
+    <h2>6. Limits</h2>
+    <ul>
+      <li>The readings are dated {day(RETRIEVED)}; a law passed after that date is not reflected until we read it again.</li>
+      <li>Rows marked “official page read” were not opened on the state’s own server; their citation is given so you can check it.</li>
+      <li>Limitation periods, local court rules, county fees and exemption amounts were not read and are not shown.</li>
+      <li>Nothing here is legal advice; the clerk of the court and a lawyer licensed in your state are the ones who can answer for your case.</li>
+    </ul>
+    <p>Corrections: <a href={route('contact', lang)}>contact page</a>.</p>
+  </article>
+</PageLayout>

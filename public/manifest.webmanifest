@@ -1,0 +1,21 @@
+{
+ "name": "Small Claims By State",
+ "short_name": "Small Claims By State",
+ "description": "Small claims court limits for all 50 states and DC, read from each statute, with the official filing fee where one exists and a check of your own claim amount.",
+ "start_url": "/en/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#3B4A6B",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

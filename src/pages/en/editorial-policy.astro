@@ -1,0 +1,19 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME } from '../../data/site-config';
+const lang = 'en';
+---
+<PageLayout title="Editorial policy of Small Claims By State: laws read, dated" description="How Small Claims By State writes its pages: limits read in each statute or court rule, fees from court schedules, each with its date and link, and never legal advice." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>Editorial policy</h1>
+    <h2>Where the figures come from</h2>
+    <p>A limit enters the site only when it was read in the statute, the court rule, a signed bill or the court system’s own page. A fee enters only when a court publishes it statewide. Each figure is stored with the address of what was read, the method of reading and the date. Law firm and legal-forms pages are read to see what readers are told, never to take a number.</p>
+    <h2>How pages are written</h2>
+    <p>No limit is typed into the text. The data live in one file built by a script from our readings, and every page computes its figures from it when the site is built, with the same engine as the calculators. A figure that could not be read at its source is not shown.</p>
+    <h2>Money</h2>
+    <p>{AUTHOR_NAME} receives nothing from law firms, legal-forms sellers, process servers or collection agencies, and links to none of them as a sponsor. There is no advertising today; if some is added it will be labeled and never placed above a calculator.</p>
+    <h2>Updates and corrections</h2>
+    <p>Nothing on the site updates by itself. Each page shows the date its sources were last read. When a state changes a limit, the pages keep the figure they show until the new law is read. A reported error is checked against the official text and, once fixed, moves the date. Write through the <a href={route('contact', lang)}>contact page</a>; the rules are on the <a href={route('method', lang)}>method page</a>.</p>
+  </article>
+</PageLayout>

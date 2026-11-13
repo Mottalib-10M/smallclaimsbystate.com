@@ -1,0 +1,387 @@
+{
+ "_lisezmoi": "Sources of the site. State limits and fees: src/data/states.json, built by scripts/data/build-states.py from the readings of 2026-11-13.",
+ "year": 2026,
+ "retrieved_at": "2026-11-13",
+ "valid_from": "2026-11-13",
+ "valid_to": "2026-12-31",
+ "sources": {
+  "law_al": {
+   "url": "https://judicial.alabama.gov/docs/library/docs/smguide.pdf",
+   "label": {
+    "en": "Alabama: Ala. Code § 12-12-31, as amended by Act 2015-224"
+   }
+  },
+  "law_ak": {
+   "url": "https://public.courts.alaska.gov/web/forms/docs/sc-100.pdf",
+   "label": {
+    "en": "Alaska: Alaska Stat. § 22.15.040(a)"
+   }
+  },
+  "fee_ak": {
+   "url": "https://courts.alaska.gov/shc/courtfees.htm",
+   "label": {
+    "en": "Alaska: small claims filing fees"
+   }
+  },
+  "law_az": {
+   "url": "https://www.azleg.gov/ars/22/00503.htm",
+   "label": {
+    "en": "Arizona: Ariz. Rev. Stat. § 22-503"
+   }
+  },
+  "fee_az": {
+   "url": "https://www.azcourts.gov/courtfilingfees/Justice-Court-Filing-Fees",
+   "label": {
+    "en": "Arizona: small claims filing fees"
+   }
+  },
+  "law_ar": {
+   "url": "https://arcourts.gov/courts/district-courts",
+   "label": {
+    "en": "Arkansas: Ark. Const. amend. 80 and District Court Rule 10"
+   }
+  },
+  "law_ca": {
+   "url": "https://selfhelp.courts.ca.gov/small-claims/start-case/file",
+   "label": {
+    "en": "California: Cal. Code Civ. Proc. §§ 116.220 and 116.221"
+   }
+  },
+  "law_co": {
+   "url": "https://www.coloradojudicial.gov/self-help/list-fees",
+   "label": {
+    "en": "Colorado: Colo. Rev. Stat. § 13-6-403"
+   }
+  },
+  "law_ct": {
+   "url": "https://www.cga.ct.gov/current/pub/chap_870.htm",
+   "label": {
+    "en": "Connecticut: Conn. Gen. Stat. § 51-15(d)"
+   }
+  },
+  "law_de": {
+   "url": "https://delcode.delaware.gov/title10/c093/index.html",
+   "label": {
+    "en": "Delaware: 10 Del. C. § 9301"
+   }
+  },
+  "fee_de": {
+   "url": "https://courts.delaware.gov/help/Proceedings/jp_faqs.aspx",
+   "label": {
+    "en": "Delaware: small claims filing fees"
+   }
+  },
+  "law_dc": {
+   "url": "https://code.dccouncil.gov/us/dc/council/code/sections/11-1321",
+   "label": {
+    "en": "District of Columbia: D.C. Code § 11-1321"
+   }
+  },
+  "law_fl": {
+   "url": "https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Small-Claims-Rules-7-1-2026-1.pdf",
+   "label": {
+    "en": "Florida: Fla. Sm. Cl. R. 7.010(b)"
+   }
+  },
+  "fee_fl": {
+   "url": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099%2F0034%2FSections%2F0034.041.html",
+   "label": {
+    "en": "Florida: small claims filing fees"
+   }
+  },
+  "law_ga": {
+   "url": "https://gov.georgia.gov/document/2026-signed-legislation/hb-999/download",
+   "label": {
+    "en": "Georgia: O.C.G.A. § 15-10-2(5), as amended by HB 999 (2026)"
+   }
+  },
+  "law_hi": {
+   "url": "https://www.courts.state.hi.us/self-help/small_claims_info",
+   "label": {
+    "en": "Hawaii: Haw. Rev. Stat. § 633-27"
+   }
+  },
+  "law_id": {
+   "url": "https://legislature.idaho.gov/statutesrules/idstat/title1/t1ch23/sect1-2301/",
+   "label": {
+    "en": "Idaho: Idaho Code § 1-2301, as amended by S1330 (2026)"
+   }
+  },
+  "law_il": {
+   "url": "https://www.illinoiscourts.gov/Resources/fc725e38-19e3-4eaf-b7ae-2292402109d0/SMC_HowtoFileandServeaSmallClaimsComplaintandSummons.pdf",
+   "label": {
+    "en": "Illinois: Ill. S. Ct. R. 281"
+   }
+  },
+  "law_in": {
+   "url": "https://www.in.gov/courts/files/small-claims-manual.pdf",
+   "label": {
+    "en": "Indiana: Ind. Code § 33-29-2-4"
+   }
+  },
+  "law_ia": {
+   "url": "https://www.legis.iowa.gov/docs/code/631.1.pdf",
+   "label": {
+    "en": "Iowa: Iowa Code § 631.1"
+   }
+  },
+  "fee_ia": {
+   "url": "https://www.iowacourts.gov/for-the-public/representing-yourself/small-claims",
+   "label": {
+    "en": "Iowa: small claims filing fees"
+   }
+  },
+  "law_ks": {
+   "url": "https://www.ksrevisor.gov/statutes/chapters/ch61/061_027_0003.html",
+   "label": {
+    "en": "Kansas: Kan. Stat. § 61-2703"
+   }
+  },
+  "law_ky": {
+   "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=39856",
+   "label": {
+    "en": "Kentucky: Ky. Rev. Stat. § 24A.230"
+   }
+  },
+  "law_la": {
+   "url": "https://www.ag.state.la.us/Files/Shared/Documents/AGuideToLaJpcCourt.pdf",
+   "label": {
+    "en": "Louisiana: La. R.S. 13:5202 and 13:4911"
+   }
+  },
+  "law_me": {
+   "url": "https://legislature.maine.gov/statutes/14/title14sec7482.html",
+   "label": {
+    "en": "Maine: 14 M.R.S. § 7482"
+   }
+  },
+  "law_md": {
+   "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcj&section=4-405",
+   "label": {
+    "en": "Maryland: Md. Code, Cts. & Jud. Proc. § 4-405"
+   }
+  },
+  "law_ma": {
+   "url": "https://www.mass.gov/info-details/mass-general-laws-c218-ss-21",
+   "label": {
+    "en": "Massachusetts: Mass. Gen. Laws ch. 218, § 21"
+   }
+  },
+  "fee_ma": {
+   "url": "https://www.mass.gov/info-details/boston-municipal-court-and-district-court-filing-fees",
+   "label": {
+    "en": "Massachusetts: small claims filing fees"
+   }
+  },
+  "law_mi": {
+   "url": "https://www.courts.michigan.gov/siteassets/court-administration/resources/dfee.pdf",
+   "label": {
+    "en": "Michigan: Mich. Comp. Laws § 600.8401"
+   }
+  },
+  "law_mn": {
+   "url": "https://www.revisor.mn.gov/statutes/cite/491A.01",
+   "label": {
+    "en": "Minnesota: Minn. Stat. § 491A.01, subd. 3a"
+   }
+  },
+  "law_ms": {
+   "url": "https://courts.ms.gov/trialcourts/justicecourt/justicecourt.php",
+   "label": {
+    "en": "Mississippi: Miss. Code § 9-11-9"
+   }
+  },
+  "law_mo": {
+   "url": "https://revisor.mo.gov/main/OneSection.aspx?section=482.305",
+   "label": {
+    "en": "Missouri: Mo. Rev. Stat. § 482.305"
+   }
+  },
+  "law_mt": {
+   "url": "https://archive.legmt.gov/bills/mca/title_0250/chapter_0350/part_0050/section_0020/0250-0350-0050-0020.html",
+   "label": {
+    "en": "Montana: Mont. Code § 25-35-502"
+   }
+  },
+  "law_ne": {
+   "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=25-2802",
+   "label": {
+    "en": "Nebraska: Neb. Rev. Stat. § 25-2802"
+   }
+  },
+  "law_nv": {
+   "url": "https://www.leg.state.nv.us/nrs/NRS-073.html",
+   "label": {
+    "en": "Nevada: Nev. Rev. Stat. § 73.010"
+   }
+  },
+  "law_nh": {
+   "url": "https://gc.nh.gov/rsa/html/li/503/503-mrg.htm",
+   "label": {
+    "en": "New Hampshire: N.H. Rev. Stat. § 503:1"
+   }
+  },
+  "law_nj": {
+   "url": "https://www.njcourts.gov/sites/default/files/forms/10290_small_claims.pdf",
+   "label": {
+    "en": "New Jersey: N.J. Ct. R. 6:1-2"
+   }
+  },
+  "fee_nj": {
+   "url": "https://www.njcourts.gov/sites/default/files/forms/11112_courtfees.pdf",
+   "label": {
+    "en": "New Jersey: small claims filing fees"
+   }
+  },
+  "law_nm": {
+   "url": "https://nmcourts.gov/wp-content/uploads/sites/22/2023/11/How-to-File-a-Civil-Lawsuit-7_10_2023.pdf",
+   "label": {
+    "en": "New Mexico: N.M. Stat. § 35-3-3"
+   }
+  },
+  "law_ny": {
+   "url": "https://www.nycourts.gov/help/small-claims",
+   "label": {
+    "en": "New York: N.Y. City Civ. Ct. Act § 1801"
+   }
+  },
+  "law_nc": {
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_7A/GS_7A-210.pdf",
+   "label": {
+    "en": "North Carolina: N.C. Gen. Stat. § 7A-210"
+   }
+  },
+  "law_nd": {
+   "url": "https://ndlegis.gov/cencode/t27c08-1.pdf",
+   "label": {
+    "en": "North Dakota: N.D. Cent. Code § 27-08.1-01"
+   }
+  },
+  "law_oh": {
+   "url": "https://codes.ohio.gov/ohio-revised-code/section-1925.02",
+   "label": {
+    "en": "Ohio: Ohio Rev. Code § 1925.02"
+   }
+  },
+  "law_ok": {
+   "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=438809",
+   "label": {
+    "en": "Oklahoma: Okla. Stat. tit. 12, § 1751"
+   }
+  },
+  "law_or": {
+   "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors046.html",
+   "label": {
+    "en": "Oregon: Or. Rev. Stat. § 46.405"
+   }
+  },
+  "law_pa": {
+   "url": "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/42/00.015.015.000..HTM",
+   "label": {
+    "en": "Pennsylvania: 42 Pa. C.S. § 1515"
+   }
+  },
+  "law_ri": {
+   "url": "https://www.courts.ri.gov/Courts/districtcourt/Documents/SmallClaimsInstructions.pdf",
+   "label": {
+    "en": "Rhode Island: R.I. Gen. Laws § 10-16-1"
+   }
+  },
+  "law_sc": {
+   "url": "https://www.scstatehouse.gov/code/t22c003.php",
+   "label": {
+    "en": "South Carolina: S.C. Code § 22-3-10"
+   }
+  },
+  "law_sd": {
+   "url": "https://sdlegislature.gov/api/Statutes/15-39-45.1.html",
+   "label": {
+    "en": "South Dakota: S.D. Codified Laws § 15-39-45.1"
+   }
+  },
+  "law_tn": {
+   "url": "https://www.capitol.tn.gov/Bills/114/Fiscal/SB0572.pdf",
+   "label": {
+    "en": "Tennessee: Tenn. Code § 16-15-501(d)(1)"
+   }
+  },
+  "law_tx": {
+   "url": "https://www.txcourts.gov/media/1461640/259096.pdf",
+   "label": {
+    "en": "Texas: Tex. R. Civ. P. 500.3; Tex. Gov’t Code § 27.031"
+   }
+  },
+  "law_ut": {
+   "url": "https://www.utcourts.gov/en/self-help/case-categories/consumer/small-claims.html",
+   "label": {
+    "en": "Utah: Utah Code § 78A-8-102"
+   }
+  },
+  "law_vt": {
+   "url": "https://legislature.vermont.gov/statutes/section/12/187/05531",
+   "label": {
+    "en": "Vermont: 12 V.S.A. § 5531"
+   }
+  },
+  "law_va": {
+   "url": "https://law.lis.virginia.gov/vacode/title16.1/chapter4.1/section16.1-122.2/",
+   "label": {
+    "en": "Virginia: Va. Code § 16.1-122.2"
+   }
+  },
+  "law_wa": {
+   "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=12.40.010",
+   "label": {
+    "en": "Washington: Rev. Code Wash. § 12.40.010"
+   }
+  },
+  "fee_wa": {
+   "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=12.40.020",
+   "label": {
+    "en": "Washington: small claims filing fees"
+   }
+  },
+  "law_wv": {
+   "url": "https://code.wvlegislature.gov/50-2-1/",
+   "label": {
+    "en": "West Virginia: W. Va. Code § 50-2-1"
+   }
+  },
+  "law_wi": {
+   "url": "https://docs.legis.wisconsin.gov/statutes/statutes/799/01",
+   "label": {
+    "en": "Wisconsin: Wis. Stat. § 799.01"
+   }
+  },
+  "law_wy": {
+   "url": "https://wyoleg.gov/statutes/compress/title01.pdf",
+   "label": {
+    "en": "Wyoming: Wyo. Stat. § 1-21-201"
+   }
+  },
+  "fee_wy": {
+   "url": "https://www.wyocourts.gov/legal-help-by-topic/small-claims/",
+   "label": {
+    "en": "Wyoming: small claims filing fees"
+   }
+  },
+  "ga_hb999": {
+   "url": "https://gov.georgia.gov/document/2026-signed-legislation/hb-999/download",
+   "label": {
+    "en": "Georgia HB 999 (2026), as passed and signed: magistrate court limit"
+   }
+  },
+  "id_s1330": {
+   "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2026/legislation/S1330SOP.pdf",
+   "label": {
+    "en": "Idaho S1330 (2026), statement of purpose: small claims limit from $5,000 to $15,000"
+   }
+  },
+  "ca_selfhelp": {
+   "url": "https://selfhelp.courts.ca.gov/small-claims/start-case/file",
+   "label": {
+    "en": "California Courts self-help: file your plaintiff’s claim"
+   }
+  }
+ }
+}

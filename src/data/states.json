@@ -1,0 +1,957 @@
+{
+ "retrieved_at": "2026-11-13",
+ "states": [
+  {
+   "code": "AL",
+   "name": "Alabama",
+   "slug": "alabama",
+   "cap": 6000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims docket)",
+   "cite": "Ala. Code § 12-12-31, as amended by Act 2015-224",
+   "url": "https://judicial.alabama.gov/docs/library/docs/smguide.pdf",
+   "read": "index",
+   "note": "",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "AK",
+   "name": "Alaska",
+   "slug": "alaska",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims)",
+   "cite": "Alaska Stat. § 22.15.040(a)",
+   "url": "https://public.courts.alaska.gov/web/forms/docs/sc-100.pdf",
+   "read": "index",
+   "note": "Attorney fees awarded in small claims are capped at $1,000 by the court’s own rules.",
+   "fee": [
+    [
+     2500,
+     50
+    ],
+    [
+     10000,
+     100
+    ]
+   ],
+   "feeUrl": "https://courts.alaska.gov/shc/courtfees.htm",
+   "feeNote": "Administrative Rule 9 fee table, in effect since May 1, 2023."
+  },
+  {
+   "code": "AZ",
+   "name": "Arizona",
+   "slug": "arizona",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "Justice Court (small claims division)",
+   "cite": "Ariz. Rev. Stat. § 22-503",
+   "url": "https://www.azleg.gov/ars/22/00503.htm",
+   "read": "statute",
+   "note": "",
+   "fee": [
+    [
+     5000,
+     30
+    ]
+   ],
+   "feeUrl": "https://www.azcourts.gov/courtfilingfees/Justice-Court-Filing-Fees",
+   "feeNote": "Statewide justice court schedule in effect since December 28, 2024 (AO 2024-211); Maricopa County justice courts publish their own schedule, $58 for a small claims complaint."
+  },
+  {
+   "code": "AR",
+   "name": "Arkansas",
+   "slug": "arkansas",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims division)",
+   "cite": "Ark. Const. amend. 80 and District Court Rule 10",
+   "url": "https://arcourts.gov/courts/district-courts",
+   "read": "index",
+   "note": "The small claims division hears contract, property damage and property recovery claims; district courts hear other civil claims up to $25,000.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "CA",
+   "name": "California",
+   "slug": "california",
+   "cap": 12500,
+   "capBiz": 6250,
+   "next": null,
+   "court": "Superior Court (small claims division)",
+   "cite": "Cal. Code Civ. Proc. §§ 116.220 and 116.221",
+   "url": "https://selfhelp.courts.ca.gov/small-claims/start-case/file",
+   "read": "court",
+   "note": "Businesses and other entities are limited to $6,250. No one may file more than two claims over $2,500 in a calendar year.",
+   "fee": [
+    [
+     1500,
+     30
+    ],
+    [
+     5000,
+     50
+    ],
+    [
+     12500,
+     75
+    ]
+   ],
+   "feeUrl": "https://selfhelp.courts.ca.gov/small-claims/start-case/file",
+   "feeNote": "$100 for anyone who filed more than 12 small claims in the past 12 months."
+  },
+  {
+   "code": "CO",
+   "name": "Colorado",
+   "slug": "colorado",
+   "cap": 7500,
+   "capBiz": null,
+   "next": null,
+   "court": "County Court (small claims)",
+   "cite": "Colo. Rev. Stat. § 13-6-403",
+   "url": "https://www.coloradojudicial.gov/self-help/list-fees",
+   "read": "court",
+   "note": "A plaintiff may file no more than two claims a month in one county and 18 a year (C.R.S. § 13-6-411).",
+   "fee": [
+    [
+     500,
+     31
+    ],
+    [
+     7500,
+     55
+    ]
+   ],
+   "feeUrl": "https://www.coloradojudicial.gov/self-help/list-fees",
+   "feeNote": "C.R.S. § 13-32-101(1)(c)(IV)."
+  },
+  {
+   "code": "CT",
+   "name": "Connecticut",
+   "slug": "connecticut",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "Superior Court (small claims session)",
+   "cite": "Conn. Gen. Stat. § 51-15(d)",
+   "url": "https://www.cga.ct.gov/current/pub/chap_870.htm",
+   "read": "statute",
+   "note": "Libel and slander claims are excluded from the small claims procedure.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "DE",
+   "name": "Delaware",
+   "slug": "delaware",
+   "cap": 25000,
+   "capBiz": null,
+   "next": null,
+   "court": "Justice of the Peace Court (civil)",
+   "cite": "10 Del. C. § 9301",
+   "url": "https://delcode.delaware.gov/title10/c093/index.html",
+   "read": "statute",
+   "note": "Delaware has no separate small claims court: the Justice of the Peace Court hears debt, damage and replevin claims up to $25,000.",
+   "fee": [
+    [
+     1000,
+     35
+    ],
+    [
+     5000,
+     40
+    ],
+    [
+     25000,
+     45
+    ]
+   ],
+   "feeUrl": "https://courts.delaware.gov/help/Proceedings/jp_faqs.aspx",
+   "feeNote": "Justice of the Peace Court fees."
+  },
+  {
+   "code": "DC",
+   "name": "District of Columbia",
+   "slug": "district-of-columbia",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Superior Court (Small Claims and Conciliation Branch)",
+   "cite": "D.C. Code § 11-1321",
+   "url": "https://code.dccouncil.gov/us/dc/council/code/sections/11-1321",
+   "read": "statute",
+   "note": "The limit excludes interest, attorney fees, protest fees and costs.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "FL",
+   "name": "Florida",
+   "slug": "florida",
+   "cap": 8000,
+   "capBiz": null,
+   "next": null,
+   "court": "County Court (small claims)",
+   "cite": "Fla. Sm. Cl. R. 7.010(b)",
+   "url": "https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Small-Claims-Rules-7-1-2026-1.pdf",
+   "read": "index",
+   "note": "The limit excludes costs, interest and attorney fees.",
+   "fee": [
+    [
+     99.99,
+     50
+    ],
+    [
+     500,
+     75
+    ],
+    [
+     2500,
+     170
+    ],
+    [
+     8000,
+     295
+    ]
+   ],
+   "feeUrl": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099%2F0034%2FSections%2F0034.041.html",
+   "feeNote": "Maximum county court filing fees set by Fla. Stat. § 34.041 (2026 statutes); service of process is extra."
+  },
+  {
+   "code": "GA",
+   "name": "Georgia",
+   "slug": "georgia",
+   "cap": 15000,
+   "capBiz": null,
+   "next": {
+    "cap": 25000,
+    "from": "2027-01-01"
+   },
+   "court": "Magistrate Court",
+   "cite": "O.C.G.A. § 15-10-2(5), as amended by HB 999 (2026)",
+   "url": "https://gov.georgia.gov/document/2026-signed-legislation/hb-999/download",
+   "read": "statute",
+   "note": "HB 999 raises the limit to $25,000 for actions filed on or after January 1, 2027.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "HI",
+   "name": "Hawaii",
+   "slug": "hawaii",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims division)",
+   "cite": "Haw. Rev. Stat. § 633-27",
+   "url": "https://www.courts.state.hi.us/self-help/small_claims_info",
+   "read": "court",
+   "note": "Security deposit claims of tenants have no dollar limit in the small claims division.",
+   "fee": [
+    [
+     5000,
+     35
+    ]
+   ],
+   "feeUrl": "https://www.courts.state.hi.us/self-help/small_claims_info",
+   "feeNote": "Hawaii State Judiciary small claims page."
+  },
+  {
+   "code": "ID",
+   "name": "Idaho",
+   "slug": "idaho",
+   "cap": 15000,
+   "capBiz": null,
+   "next": null,
+   "court": "Magistrate Division (small claims department)",
+   "cite": "Idaho Code § 1-2301, as amended by S1330 (2026)",
+   "url": "https://legislature.idaho.gov/statutesrules/idstat/title1/t1ch23/sect1-2301/",
+   "read": "index",
+   "note": "The limit rose from $5,000 to $15,000 on July 1, 2026. Punitive damages and pain and suffering cannot be awarded.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "IL",
+   "name": "Illinois",
+   "slug": "illinois",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Circuit Court (small claims)",
+   "cite": "Ill. S. Ct. R. 281",
+   "url": "https://www.illinoiscourts.gov/Resources/fc725e38-19e3-4eaf-b7ae-2292402109d0/SMC_HowtoFileandServeaSmallClaimsComplaintandSummons.pdf",
+   "read": "index",
+   "note": "Filing fees are set by each county’s circuit clerk.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "IN",
+   "name": "Indiana",
+   "slug": "indiana",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Circuit or Superior Court (small claims docket)",
+   "cite": "Ind. Code § 33-29-2-4",
+   "url": "https://www.in.gov/courts/files/small-claims-manual.pdf",
+   "read": "index",
+   "note": "Filing fees are set by county: Wabash County, for one, charges $97 for one defendant.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "IA",
+   "name": "Iowa",
+   "slug": "iowa",
+   "cap": 6500,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims)",
+   "cite": "Iowa Code § 631.1",
+   "url": "https://www.legis.iowa.gov/docs/code/631.1.pdf",
+   "read": "statute",
+   "note": "The $6,500 limit applies to actions commenced on or after July 1, 2018.",
+   "fee": [
+    [
+     6500,
+     115
+    ]
+   ],
+   "feeUrl": "https://www.iowacourts.gov/for-the-public/representing-yourself/small-claims",
+   "feeNote": "Iowa Judicial Branch."
+  },
+  {
+   "code": "KS",
+   "name": "Kansas",
+   "slug": "kansas",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims)",
+   "cite": "Kan. Stat. § 61-2703",
+   "url": "https://www.ksrevisor.gov/statutes/chapters/ch61/061_027_0003.html",
+   "read": "statute",
+   "note": "Several district court pages still show the former $4,000 limit; the statute reads $10,000.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "KY",
+   "name": "Kentucky",
+   "slug": "kentucky",
+   "cap": 2500,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims division)",
+   "cite": "Ky. Rev. Stat. § 24A.230",
+   "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=39856",
+   "read": "index",
+   "note": "No one may file more than 25 small claims a year in one district court.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "LA",
+   "name": "Louisiana",
+   "slug": "louisiana",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "Justice of the Peace Court or City Court (small claims division)",
+   "cite": "La. R.S. 13:5202 and 13:4911",
+   "url": "https://www.ag.state.la.us/Files/Shared/Documents/AGuideToLaJpcCourt.pdf",
+   "read": "index",
+   "note": "A claim cannot be split to stay under the limit.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "ME",
+   "name": "Maine",
+   "slug": "maine",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims)",
+   "cite": "14 M.R.S. § 7482",
+   "url": "https://legislature.maine.gov/statutes/14/title14sec7482.html",
+   "read": "statute",
+   "note": "",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "MD",
+   "name": "Maryland",
+   "slug": "maryland",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claim action)",
+   "cite": "Md. Code, Cts. & Jud. Proc. § 4-405",
+   "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcj&section=4-405",
+   "read": "statute",
+   "note": "The limit excludes interest, costs and attorney fees where the law or a contract allows them.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "MA",
+   "name": "Massachusetts",
+   "slug": "massachusetts",
+   "cap": 7000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court, Boston Municipal Court or Housing Court (small claims)",
+   "cite": "Mass. Gen. Laws ch. 218, § 21",
+   "url": "https://www.mass.gov/info-details/mass-general-laws-c218-ss-21",
+   "read": "index",
+   "note": "The $7,000 limit does not apply to property damage caused by a motor vehicle.",
+   "fee": [
+    [
+     500,
+     40
+    ],
+    [
+     2000,
+     50
+    ],
+    [
+     5000,
+     100
+    ],
+    [
+     7000,
+     150
+    ]
+   ],
+   "feeUrl": "https://www.mass.gov/info-details/boston-municipal-court-and-district-court-filing-fees",
+   "feeNote": "Includes the $10 surcharge; $7 more if you file online."
+  },
+  {
+   "code": "MI",
+   "name": "Michigan",
+   "slug": "michigan",
+   "cap": 7000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims division)",
+   "cite": "Mich. Comp. Laws § 600.8401",
+   "url": "https://www.courts.michigan.gov/siteassets/court-administration/resources/dfee.pdf",
+   "read": "index",
+   "note": "Earlier steps of the statute were $5,000 (2012), $5,500 (2015), then $6,000 and $6,500; $7,000 applies since January 1, 2024.",
+   "fee": [
+    [
+     600,
+     25
+    ],
+    [
+     1750,
+     45
+    ],
+    [
+     7000,
+     65
+    ]
+   ],
+   "feeUrl": "https://www.courts.michigan.gov/siteassets/court-administration/resources/dfee.pdf",
+   "feeNote": "MCL 600.8420, district court fee table of April 2025; an e-filing fee is added where the court uses e-filing."
+  },
+  {
+   "code": "MN",
+   "name": "Minnesota",
+   "slug": "minnesota",
+   "cap": 20000,
+   "capBiz": null,
+   "next": null,
+   "court": "Conciliation Court",
+   "cite": "Minn. Stat. § 491A.01, subd. 3a",
+   "url": "https://www.revisor.mn.gov/statutes/cite/491A.01",
+   "read": "statute",
+   "note": "The general limit rose from $15,000 to $20,000 on July 1, 2024; consumer credit claims are limited to $4,000.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "MS",
+   "name": "Mississippi",
+   "slug": "mississippi",
+   "cap": 3500,
+   "capBiz": null,
+   "next": null,
+   "court": "Justice Court",
+   "cite": "Miss. Code § 9-11-9",
+   "url": "https://courts.ms.gov/trialcourts/justicecourt/justicecourt.php",
+   "read": "index",
+   "note": "",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "MO",
+   "name": "Missouri",
+   "slug": "missouri",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "Circuit Court, associate division (small claims)",
+   "cite": "Mo. Rev. Stat. § 482.305",
+   "url": "https://revisor.mo.gov/main/OneSection.aspx?section=482.305",
+   "read": "statute",
+   "note": "",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "MT",
+   "name": "Montana",
+   "slug": "montana",
+   "cap": 7000,
+   "capBiz": null,
+   "next": null,
+   "court": "Justice Court (small claims)",
+   "cite": "Mont. Code § 25-35-502",
+   "url": "https://archive.legmt.gov/bills/mca/title_0250/chapter_0350/part_0050/section_0020/0250-0350-0050-0020.html",
+   "read": "statute",
+   "note": "The defendant must be served within the county where the action is filed.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "NE",
+   "name": "Nebraska",
+   "slug": "nebraska",
+   "cap": 7500,
+   "capBiz": null,
+   "next": null,
+   "court": "County Court (small claims)",
+   "cite": "Neb. Rev. Stat. § 25-2802",
+   "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=25-2802",
+   "read": "index",
+   "note": "The limit was $6,000 until June 30, 2025; the Supreme Court adjusts it every fifth year.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "NV",
+   "name": "Nevada",
+   "slug": "nevada",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Justice Court (small claims)",
+   "cite": "Nev. Rev. Stat. § 73.010",
+   "url": "https://www.leg.state.nv.us/nrs/NRS-073.html",
+   "read": "index",
+   "note": "Filing fees differ by justice court.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "NH",
+   "name": "New Hampshire",
+   "slug": "new-hampshire",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Circuit Court, District Division (small claims)",
+   "cite": "N.H. Rev. Stat. § 503:1",
+   "url": "https://gc.nh.gov/rsa/html/li/503/503-mrg.htm",
+   "read": "index",
+   "note": "Claims over $5,000 go to mandatory mediation.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "NJ",
+   "name": "New Jersey",
+   "slug": "new-jersey",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "Superior Court, Special Civil Part (small claims section)",
+   "cite": "N.J. Ct. R. 6:1-2",
+   "url": "https://www.njcourts.gov/sites/default/files/forms/10290_small_claims.pdf",
+   "read": "index",
+   "note": "The Special Civil Part hears claims up to $20,000 outside the small claims section.",
+   "fee": [
+    [
+     5000,
+     35
+    ]
+   ],
+   "feeUrl": "https://www.njcourts.gov/sites/default/files/forms/11112_courtfees.pdf",
+   "feeNote": "$35 for one defendant, $5 for each additional defendant; mail service $10 per defendant."
+  },
+  {
+   "code": "NM",
+   "name": "New Mexico",
+   "slug": "new-mexico",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Magistrate Court (civil)",
+   "cite": "N.M. Stat. § 35-3-3",
+   "url": "https://nmcourts.gov/wp-content/uploads/sites/22/2023/11/How-to-File-a-Civil-Lawsuit-7_10_2023.pdf",
+   "read": "index",
+   "note": "",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "NY",
+   "name": "New York",
+   "slug": "new-york",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Civil Court of the City of New York (small claims part)",
+   "cite": "N.Y. City Civ. Ct. Act § 1801",
+   "url": "https://www.nycourts.gov/help/small-claims",
+   "read": "index",
+   "note": "The $10,000 limit is New York City’s; city courts outside the city, Nassau and Suffolk allow $5,000 and town and village courts $3,000.",
+   "fee": [
+    [
+     1000,
+     15
+    ],
+    [
+     10000,
+     20
+    ]
+   ],
+   "feeUrl": "https://www.nycourts.gov/help/small-claims",
+   "feeNote": "New York City Civil Court fees."
+  },
+  {
+   "code": "NC",
+   "name": "North Carolina",
+   "slug": "north-carolina",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims before a magistrate)",
+   "cite": "N.C. Gen. Stat. § 7A-210",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_7A/GS_7A-210.pdf",
+   "read": "index",
+   "note": "The statute allows up to $10,000, but each county sets its own figure between $5,000 and $10,000.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "ND",
+   "name": "North Dakota",
+   "slug": "north-dakota",
+   "cap": 15000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims)",
+   "cite": "N.D. Cent. Code § 27-08.1-01",
+   "url": "https://ndlegis.gov/cencode/t27c08-1.pdf",
+   "read": "statute",
+   "note": "",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "OH",
+   "name": "Ohio",
+   "slug": "ohio",
+   "cap": 6000,
+   "capBiz": null,
+   "next": null,
+   "court": "Municipal or County Court (small claims division)",
+   "cite": "Ohio Rev. Code § 1925.02",
+   "url": "https://codes.ohio.gov/ohio-revised-code/section-1925.02",
+   "read": "index",
+   "note": "Libel, slander, replevin and punitive damages are excluded.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "OK",
+   "name": "Oklahoma",
+   "slug": "oklahoma",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims)",
+   "cite": "Okla. Stat. tit. 12, § 1751",
+   "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=438809",
+   "read": "index",
+   "note": "Collection agencies and assignees of a claim cannot use the small claims procedure.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "OR",
+   "name": "Oregon",
+   "slug": "oregon",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Circuit Court (small claims department)",
+   "cite": "Or. Rev. Stat. § 46.405",
+   "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors046.html",
+   "read": "statute",
+   "note": "Claims of $750 or less must be filed in small claims.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "PA",
+   "name": "Pennsylvania",
+   "slug": "pennsylvania",
+   "cap": 12000,
+   "capBiz": null,
+   "next": null,
+   "court": "Magisterial District Court",
+   "cite": "42 Pa. C.S. § 1515",
+   "url": "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/42/00.015.015.000..HTM",
+   "read": "index",
+   "note": "A plaintiff may waive the part of a claim above $12,000 to stay in the magisterial district court.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "RI",
+   "name": "Rhode Island",
+   "slug": "rhode-island",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "District Court (small claims)",
+   "cite": "R.I. Gen. Laws § 10-16-1",
+   "url": "https://www.courts.ri.gov/Courts/districtcourt/Documents/SmallClaimsInstructions.pdf",
+   "read": "index",
+   "note": "",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "SC",
+   "name": "South Carolina",
+   "slug": "south-carolina",
+   "cap": 7500,
+   "capBiz": null,
+   "next": null,
+   "court": "Magistrate Court",
+   "cite": "S.C. Code § 22-3-10",
+   "url": "https://www.scstatehouse.gov/code/t22c003.php",
+   "read": "statute",
+   "note": "",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "SD",
+   "name": "South Dakota",
+   "slug": "south-dakota",
+   "cap": 12000,
+   "capBiz": null,
+   "next": null,
+   "court": "Magistrate Court (small claims)",
+   "cite": "S.D. Codified Laws § 15-39-45.1",
+   "url": "https://sdlegislature.gov/api/Statutes/15-39-45.1.html",
+   "read": "statute",
+   "note": "The limit excludes allowable costs and attorney fees.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "TN",
+   "name": "Tennessee",
+   "slug": "tennessee",
+   "cap": 25000,
+   "capBiz": null,
+   "next": null,
+   "court": "General Sessions Court",
+   "cite": "Tenn. Code § 16-15-501(d)(1)",
+   "url": "https://www.capitol.tn.gov/Bills/114/Fiscal/SB0572.pdf",
+   "read": "index",
+   "note": "Tennessee has no separate small claims court: General Sessions Court hears civil claims up to $25,000, and local private acts can change that in some counties.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "TX",
+   "name": "Texas",
+   "slug": "texas",
+   "cap": 20000,
+   "capBiz": null,
+   "next": null,
+   "court": "Justice Court (small claims case)",
+   "cite": "Tex. R. Civ. P. 500.3; Tex. Gov’t Code § 27.031",
+   "url": "https://www.txcourts.gov/media/1461640/259096.pdf",
+   "read": "index",
+   "note": "The $20,000 includes attorney fees but excludes statutory interest and court costs.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "UT",
+   "name": "Utah",
+   "slug": "utah",
+   "cap": 20000,
+   "capBiz": null,
+   "next": {
+    "cap": 25000,
+    "from": "2030-01-01"
+   },
+   "court": "Justice Court (small claims)",
+   "cite": "Utah Code § 78A-8-102",
+   "url": "https://www.utcourts.gov/en/self-help/case-categories/consumer/small-claims.html",
+   "read": "court",
+   "note": "The $20,000 includes attorney fees and applies through December 31, 2029; the statute sets $25,000 from January 1, 2030.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "VT",
+   "name": "Vermont",
+   "slug": "vermont",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Superior Court, Civil Division (small claims)",
+   "cite": "12 V.S.A. § 5531",
+   "url": "https://legislature.vermont.gov/statutes/section/12/187/05531",
+   "read": "statute",
+   "note": "Actions to collect a debt are limited to $5,000.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "VA",
+   "name": "Virginia",
+   "slug": "virginia",
+   "cap": 5000,
+   "capBiz": null,
+   "next": null,
+   "court": "General District Court (small claims division)",
+   "cite": "Va. Code § 16.1-122.2",
+   "url": "https://law.lis.virginia.gov/vacode/title16.1/chapter4.1/section16.1-122.2/",
+   "read": "statute",
+   "note": "Lawyers generally may not represent a party in the small claims division.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "WA",
+   "name": "Washington",
+   "slug": "washington",
+   "cap": 10000,
+   "capBiz": 5000,
+   "next": null,
+   "court": "District Court (small claims department)",
+   "cite": "Rev. Code Wash. § 12.40.010",
+   "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=12.40.010",
+   "read": "statute",
+   "note": "Claims brought by anyone other than a natural person are limited to $5,000.",
+   "fee": [
+    [
+     10000,
+     35
+    ]
+   ],
+   "feeUrl": "https://app.leg.wa.gov/RCW/default.aspx?cite=12.40.020",
+   "feeNote": "RCW 12.40.020: $35 plus any local surcharge, so some counties charge more."
+  },
+  {
+   "code": "WV",
+   "name": "West Virginia",
+   "slug": "west-virginia",
+   "cap": 20000,
+   "capBiz": null,
+   "next": null,
+   "court": "Magistrate Court",
+   "cite": "W. Va. Code § 50-2-1",
+   "url": "https://code.wvlegislature.gov/50-2-1/",
+   "read": "statute",
+   "note": "",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "WI",
+   "name": "Wisconsin",
+   "slug": "wisconsin",
+   "cap": 10000,
+   "capBiz": null,
+   "next": null,
+   "court": "Circuit Court (small claims)",
+   "cite": "Wis. Stat. § 799.01",
+   "url": "https://docs.legis.wisconsin.gov/statutes/statutes/799/01",
+   "read": "index",
+   "note": "Tort and personal injury claims are limited to $5,000. The official text shows a change scheduled for January 1, 2027 that we could not read in full: check it before filing next year.",
+   "fee": null,
+   "feeUrl": null,
+   "feeNote": ""
+  },
+  {
+   "code": "WY",
+   "name": "Wyoming",
+   "slug": "wyoming",
+   "cap": 6000,
+   "capBiz": null,
+   "next": null,
+   "court": "Circuit Court (small claims)",
+   "cite": "Wyo. Stat. § 1-21-201",
+   "url": "https://wyoleg.gov/statutes/compress/title01.pdf",
+   "read": "statute",
+   "note": "Service by the sheriff or a process server is billed separately.",
+   "fee": [
+    [
+     6000,
+     10
+    ]
+   ],
+   "feeUrl": "https://www.wyocourts.gov/legal-help-by-topic/small-claims/",
+   "feeNote": "Wyoming Judicial Branch."
+  }
+ ]
+}

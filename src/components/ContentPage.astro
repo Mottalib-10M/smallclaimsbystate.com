@@ -1,0 +1,40 @@
+---
+/** Every content page: H1, the answer with its figure, the calculator at once, the folded summary, the body, FAQ, sources. */
+import PageLayout from '../layouts/PageLayout.astro';
+import Clamp from './Clamp.astro';
+import Body from './Body.astro';
+import MiniSim from './calc/MiniSim';
+import DemandLetter from './calc/DemandLetter';
+import { route, ROUTES } from '../i18n/routes';
+import { label, GROUPS } from '../i18n/nav';
+import { t } from '../i18n/ui';
+import { pageById } from '../lib/pages';
+import { helpers } from '../lib/helpers';
+import { miniHref } from '../lib/mini-targets';
+import { articleSchema, faqSchema, breadcrumbSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
+import { AUTHOR_NAME } from '../data/site-config';
+import type { PageDef } from '../lib/page-types';
+interface Props { page: PageDef }
+const { page } = Astro.props;
+const lang = 'en';
+const ui = t(lang);
+const path = route(page.id, lang);
+const group = GROUPS.find((g) => g.id === page.group)!;
+const jsonLd = [webApplicationSchema({ name: page.h1, description: page.description, path, lang }), articleSchema({ title: page.h1, description: page.description, path, lang }), webPageSchema({ name: page.h1, description: page.description, path, lang }), breadcrumbSchema([{ name: ui.breadcrumbHome, path: route('home', lang) }, { name: page.nav, path }])];
+if (page.faqs.length) jsonLd.push(faqSchema(page.faqs, lang));
+const related = page.related.filter((id) => ROUTES.some((r) => r.id === id)).map((id) => ({ href: route(id, lang), name: label(id), description: pageById(id)?.card ?? '' }));
+const sources = page.sources.map(([name, url]) => ({ name, url }));
+const toolHref = page.tool === 'letter' ? '#calculator' : page.tool === 'limit' && page.toolLocked?.includes('st') ? route('small-claims-court-limits', lang) : miniHref(page.tool, path);
+---
+<PageLayout title={page.title} description={page.description} lang={lang} jsonLd={jsonLd} faqs={page.faqs} related={related} sources={sources} breadcrumbs={[{ label: group.label }, { label: page.nav }]}>
+  <article>
+    <header class="mb-4">
+      <h1 class="font-serif text-[1.75rem] font-bold text-navy-900 max-sm:leading-tight sm:text-3xl md:text-4xl">{page.h1}</h1>
+      <p class="mt-2 text-base text-navy-700 sm:text-lg" set:html={page.intro} />
+    </header>
+    <div id="calculator" data-outil data-chrome class="scroll-mt-20 [&_.rechner-mini]:mt-0">{page.tool === 'letter' ? <DemandLetter client:load /> : <MiniSim client:load kind={page.tool} title={page.toolTitle} defaults={page.toolDefaults} locked={page.toolLocked} href={toolHref === '#calculator' ? undefined : toolHref} idPrefix="calc" />}</div>
+    <p class="mb-6 mt-3 text-sm text-navy-600">Independent site, not a law firm or a court · {ui.reviewedBy} <a href={route('about', lang)} class="underline hover:text-navy-900">{AUTHOR_NAME}</a> · <a href={route('method', lang)} class="underline hover:text-navy-900">{label('method')}</a></p>
+    <Clamp text={page.resume} lang={lang} id={`clamp-${page.id}`} class="mb-8" />
+    <Body html={page.body(helpers())} path={path} />
+  </article>
+</PageLayout>
