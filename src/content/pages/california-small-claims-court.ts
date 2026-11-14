@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
 import { st, feeFor } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('CA');
 export default definePage({
   id: 'california-small-claims-court', group: 'states', order: 11, slug: 'california-small-claims-court',
@@ -19,8 +19,8 @@ ${factsTable(h, 'CA')}
 <h2>The two-claims rule and the fee for frequent filers</h2>
 <p>A plaintiff who already filed two claims over $2,500 this calendar year must take a third one to the limited civil court, even if it is below ${usd(S.cap)}. Smaller claims are not counted. The fee rises to $100 for anyone with more than twelve small claims in the past twelve months, which mostly affects landlords and small businesses that collect their own debts.</p>
 ${h.mini('fee', { title: 'California filing fee for your amount', defaults: { st: 5, amount: 4000 }, locked: ['st'] })}
-<h2>California compared with its neighbours</h2>
-${neighboursTable(h, 'CA')}
+<h2>California compared with its neighbors</h2>
+${neighborsTable(h, 'CA')}
 <p>Next: ${h.a('small-claims-demand-letter', 'a free demand letter')} to send before you file, and ${h.a('how-to-sue-someone-in-small-claims-court', 'the steps of a case')}.</p>`,
   faqs: [
     { q: 'What is the small claims limit in California for a business?', a: '$6,250 under Code of Civil Procedure section 116.220. A sole proprietor suing in his own name counts as a person and can claim up to $12,500. The difference matters for a limited liability company or a corporation: it must cut a larger claim down to $6,250 or file in the limited civil division of the superior court.', open: true },

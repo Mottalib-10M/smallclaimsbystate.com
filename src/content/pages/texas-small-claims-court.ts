@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
-import { st, rankOf, countAtLeast } from '../../lib/engine/claims';
+import { st, idx, rankOf, countAtLeast } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('TX');
 export default definePage({
   id: 'texas-small-claims-court', group: 'states', order: 10, slug: 'texas-small-claims-court',
@@ -18,10 +18,11 @@ export default definePage({
 ${factsTable(h, 'TX')}
 <h2>Filing fees in Texas are set county by county</h2>
 <p>The Office of Court Administration publishes the parts of the fee that the state sets, but each county adds its own charges, so the total for the same petition differs from one precinct to the next. The justice court clerk gives the exact figure, and the constable or a private process server charges separately to deliver the citation. Someone who cannot pay can ask the court to let them file without paying the costs.</p>
-${h.mini('cost', { title: 'What a Texas justice court case costs you', defaults: { claim: 6000 } })}
-<h2>Neighbouring states are far lower</h2>
-<p>A Texan with a claim against someone in Oklahoma, Louisiana or New Mexico meets a very different ceiling across the border. The table compares the limits that apply in each court; the court that hears the case is usually the one where the defendant lives or where the contract was performed, which is why the neighbour’s limit can be the one that binds you.</p>
-${neighboursTable(h, 'TX')}
+<p>Because the county sets the total, the calculator below leaves the fee empty: ask the justice court clerk and type the figure in.</p>
+${h.mini('cost', { title: 'What a Texas justice court case costs you', defaults: { st: idx('TX'), claim: 6000 }, locked: ['st'] })}
+<h2>Neighboring states are far lower</h2>
+<p>A Texan with a claim against someone in Oklahoma, Louisiana or New Mexico meets a very different ceiling across the border. The table compares the limits that apply in each court; the court that hears the case is usually the one where the defendant lives or where the contract was performed, which is why the neighbor’s limit can be the one that binds you.</p>
+${neighborsTable(h, 'TX')}
 <p>For the steps from demand letter to judgment, read ${h.a('how-to-sue-someone-in-small-claims-court', 'how to sue someone in small claims court')}; to compare every state, see ${h.a('small-claims-court-limits', 'the limits of all 51 jurisdictions')}.</p>`,
   faqs: [
     { q: 'Is there still a small claims court in Texas?', a: 'Not as a separate court. Small claims cases are filed in the Justice Court of the precinct, under the justice court rules (Part V of the Texas Rules of Civil Procedure). The judge is a Justice of the Peace. The justice court also hears debt claims, repair-and-remedy cases and evictions, each with its own rules. A small claims case is the general category for an individual seeking money or property.', open: true },

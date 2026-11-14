@@ -5,7 +5,7 @@ const LOW = ranking().slice(-1)[0];
 const TOP = ranking()[0];
 export default definePage({
   id: 'how-to-sue-someone', group: 'guides', order: 1, slug: 'how-to-sue-someone',
-  nav: 'How to sue someone: which court', card: 'Small claims or the regular civil court: the amount and the defendant decide.',
+  nav: 'Small claims or regular court?', card: 'Small claims or the regular civil court: the amount and the defendant decide.',
   title: 'Sue Someone in 2026: How to Sue Someone in the Right Court',
   description: 'How to sue someone in 2026: pick the right court for your amount, demand payment in writing, file, serve and prove your case, with the limits of 51 states.',
   h1: 'How to sue someone: pick the court before anything else',

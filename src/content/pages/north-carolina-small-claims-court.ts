@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
 import { st, rankOf } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('NC');
 export default definePage({
   id: 'north-carolina-small-claims-court', group: 'states', order: 21, slug: 'north-carolina-small-claims-court',
@@ -18,8 +18,8 @@ export default definePage({
 ${factsTable(h, 'NC')}
 ${h.mini('deadline', { title: 'How long you have left to sue', defaults: { years: 3, ago: 20 } })}
 <p>The deadline calculator works on the period you enter; North Carolina’s limitation periods vary by kind of claim, and we have not read them for you.</p>
-<h2>North Carolina and its neighbours</h2>
-${neighboursTable(h, 'NC')}
+<h2>North Carolina and its neighbors</h2>
+${neighborsTable(h, 'NC')}
 <p>See ${h.a('georgia-small-claims-court', 'Georgia’s Magistrate Court')} and ${h.a('how-to-sue-someone-in-small-claims-court', 'the steps of a case')}.</p>`,
   faqs: [
     { q: 'What is the small claims limit in North Carolina?', a: 'Up to $10,000 under G.S. § 7A-210, but each county sets its own figure between $5,000 and $10,000. Ask the clerk of the county where you file. The difference matters for claims between $5,000 and $10,000, which fit in some counties and not in others. The district’s local rules state the figure for each county.', open: true },

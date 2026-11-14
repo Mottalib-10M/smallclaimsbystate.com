@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
 import { st, idx, rankOf } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('CO');
 export default definePage({
   id: 'colorado-small-claims-court', group: 'states', order: 17, slug: 'colorado-small-claims-court',
@@ -14,13 +14,13 @@ export default definePage({
   ...lockedState('CO'), toolTitle: 'Does your claim fit the Colorado limit?',
   body: (h) => `
 <h2>Two tiers of filing fee in Colorado small claims court</h2>
-<p>The step from $31 to $55 sits at $500. A neighbour who owes you $480 for a shared fence costs you $31 to sue; the same neighbour owing $520 costs $55. When the claim is close to the line, the extra $24 is small next to the amount, but it is worth knowing that court costs can be added to the judgment when you win.</p>
+<p>The step from $31 to $55 sits at $500. A neighbor who owes you $480 for a shared fence costs you $31 to sue; the same neighbor owing $520 costs $55. When the claim is close to the line, the extra $24 is small next to the amount, but it is worth knowing that court costs can be added to the judgment when you win.</p>
 ${factsTable(h, 'CO')}
 ${h.mini('fee', { title: 'The Colorado fee for your amount', defaults: { st: idx('CO'), amount: 450 }, locked: ['st'] })}
 <h2>Who uses the monthly cap</h2>
 <p>The two-a-month rule rarely touches an individual with one dispute. It matters for small landlords, contractors and shops that bill customers: a business with several unpaid invoices has to spread its filings over time, choose the larger claims for small claims and send the rest to the County Court civil docket, where there is no such cap and the limit is much higher.</p>
-<h2>Colorado and its neighbours</h2>
-${neighboursTable(h, 'CO')}
+<h2>Colorado and its neighbors</h2>
+${neighborsTable(h, 'CO')}
 <p>For the steps of a case, read ${h.a('how-to-sue-someone-in-small-claims-court', 'how to sue in small claims')}; for fees elsewhere, see ${h.a('small-claims-court-filing-fee', 'the filing fee comparison')}.</p>`,
   faqs: [
     { q: 'What is the maximum for small claims in Colorado?', a: '$7,500, heard by the small claims division of the County Court. Anything above that figure belongs on the County Court’s civil docket, which has longer forms. You can reduce a larger claim to $7,500, but the rest is then given up for good.', open: true },

@@ -5,7 +5,7 @@ const CA = st('CA');
 const LA = OTHER_COURTS.losAngeles.url;
 export default definePage({
   id: 'file-small-claims', group: 'guides', order: 10, slug: 'file-small-claims',
-  nav: 'Filing a claim', card: 'In person, by mail or online: how a small claim is filed and what the clerk needs.',
+  nav: 'Filing: in person, by mail or online', card: 'In person, by mail or online: how a small claim is filed and what the clerk needs.',
   title: 'File Small Claims in 2026: In Person, by Mail or Online',
   description: 'File small claims in 2026: the court that takes your claim in each state, filing in person, by mail or online, the copies the clerk needs and the fee to bring.',
   h1: 'File small claims: where, how and with what',

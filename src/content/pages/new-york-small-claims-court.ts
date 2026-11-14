@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
-import { st } from '../../lib/engine/claims';
+import { st, idx } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('NY');
 export default definePage({
   id: 'new-york-small-claims-court', group: 'states', order: 14, slug: 'new-york-small-claims-court',
@@ -18,9 +18,9 @@ export default definePage({
 ${factsTable(h, 'NY')}
 <h2>Evening sessions and arbitrators in New York City</h2>
 <p>The Civil Court holds many small claims sessions in the evening, so working plaintiffs do not have to lose a day. Many cases are heard by a volunteer arbitrator, a lawyer, if both sides agree; the decision is then final and cannot be appealed. Choosing a judge instead can mean a longer wait for the hearing.</p>
-${h.mini('cost', { title: 'The cost of your New York claim', defaults: { claim: 3000, fee: 20, hours: 0 } })}
-<h2>New York and its neighbours</h2>
-${neighboursTable(h, 'NY')}
+${h.mini('cost', { title: 'The cost of your New York claim', defaults: { st: idx('NY'), claim: 3000, hours: 0 }, locked: ['st'] })}
+<h2>New York and its neighbors</h2>
+${neighborsTable(h, 'NY')}
 <p>Before you file, send ${h.a('small-claims-demand-letter', 'a demand letter')}.</p>`,
   faqs: [
     { q: 'What is the small claims limit in New York State?', a: '$10,000 in New York City, $5,000 in other city courts and in Nassau and Suffolk district courts, and $3,000 in town and village courts. The court depends on where the defendant lives, works or has a business. Outside New York City, check whether your town has a city court or only a town or village justice court.', open: true },

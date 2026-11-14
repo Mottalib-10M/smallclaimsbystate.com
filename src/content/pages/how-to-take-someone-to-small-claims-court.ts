@@ -4,7 +4,7 @@ import { usd } from '../../lib/fmt';
 const CA = st('CA');
 export default definePage({
   id: 'how-to-take-someone-to-small-claims-court', group: 'guides', order: 8, slug: 'how-to-take-someone-to-small-claims-court',
-  nav: 'Taking someone to court', card: 'Put a figure on your claim, gather proof and get ready for the hearing day.',
+  nav: 'Putting a figure on your claim', card: 'Put a figure on your claim, gather proof and get ready for the hearing day.',
   title: 'Take Someone to Small Claims Court: How to Build the Claim',
   description: 'How to take someone to small claims court in 2026: add up what you are owed, check it against your state’s limit, gather the proof, prepare a short hearing.',
   h1: 'How to take someone to small claims court: build your claim first',

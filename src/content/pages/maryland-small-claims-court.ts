@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
 import { st, rankOf } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('MD');
 export default definePage({
   id: 'maryland-small-claims-court', group: 'states', order: 19, slug: 'maryland-small-claims-court',
@@ -17,9 +17,9 @@ export default definePage({
 <p>Start with the money actually owed or the damage actually suffered. Leave out the interest that has run since, the fees you will pay the court and, if your contract gives you a right to them, your attorney fees: under section 4-405 none of these count. If what is left is ${usd(S.cap)} or less, the small claim procedure is open to you.</p>
 ${factsTable(h, 'MD')}
 ${h.mini('interest', { title: 'Interest a Maryland claim can add on top', defaults: { amount: 4800, rate: 6, months: 12 } })}
-<h2>Maryland and its neighbours</h2>
+<h2>Maryland and its neighbors</h2>
 <p>Around Washington the limits change a great deal over a few miles: ${usd(st('DC').cap)} in the District, ${usd(st('VA').cap)} in Virginia’s small claims division, ${usd(st('PA').cap)} in Pennsylvania. The court that can hear the case is usually the one where the defendant lives, works or carries on business.</p>
-${neighboursTable(h, 'MD')}
+${neighborsTable(h, 'MD')}
 <p>See ${h.a('collecting-a-small-claims-judgment', 'how to collect a judgment')} once you win.</p>`,
   faqs: [
     { q: 'What is the limit for small claims in Maryland?', a: '$5,000 under section 4-405 of the Courts and Judicial Proceedings Article, not counting interest, costs and attorney fees allowed by law or contract. Interest and court costs come on top of that figure. A larger claim is still heard in the District Court, which hears civil cases above the small claim amount under its regular rules.', open: true },

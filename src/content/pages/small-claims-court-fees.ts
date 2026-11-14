@@ -5,7 +5,7 @@ const withFee = STATES.filter((s) => s.fee);
 const at = (s: (typeof STATES)[number], x: number) => (x > limitFor(s) ? 'over limit' : usd(feeFor(s, x)!));
 export default definePage({
   id: 'small-claims-court-fees', group: 'guides', order: 9, slug: 'small-claims-court-fees',
-  nav: 'All the fees', card: 'Filing, service, extra defendants: the fees of a small claim added up.',
+  nav: 'Fees for several defendants', card: 'Filing, service, extra defendants: the fees of a small claim added up.',
   title: 'Small Claims Court Fees 2026: Filing, Service, Defendants',
   description: 'Small claims court fees in 2026: the filing fee for $1,000, $2,500 and $5,000 claims in 14 states, service per defendant, and which fees the loser pays back.',
   h1: 'Small claims court fees in 2026: what you pay before the hearing',

@@ -24,7 +24,7 @@ const jsonLd = [websiteSchema(lang), organizationSchema(lang), webPageSchema({ n
 const R = ranking();
 const figures = [
   { v: usd(R[0].cap), l: `highest (${R[0].name}, ${R[1].name})` },
-  { v: usd(median()), l: 'median of 51 jurisdictions' },
+  { v: usd(median()), l: 'middle figure of the 50 states and DC' },
   { v: usd(R[R.length - 1].cap), l: `lowest (${R[R.length - 1].name})` },
 ];
 const pageFor = (slug: string) => PAGES.find((p) => p.slug === `${slug}-small-claims-court`);
@@ -47,14 +47,15 @@ const grid = [...STATES].sort((a, b) => a.name.localeCompare(b.name)).map((s) =>
   <section data-chrome class="mt-8">
     <h2 class="mb-3 text-2xl font-bold text-navy-900">Every state, one click</h2>
     <ul class="grid grid-cols-2 gap-x-4 gap-y-1 text-sm sm:grid-cols-3 lg:grid-cols-4">
-      {grid.map(({ s, p }) => <li class="flex justify-between gap-2 border-b border-navy-100 py-1">{p ? <a href={route(p.id, lang)} class="font-medium text-accent-700 underline-offset-2 hover:underline">{s.name}</a> : <span class="text-navy-800">{s.name}</span>}<span class="tabular-nums text-navy-600">{usd(s.cap)}</span></li>)}
+      {grid.map(({ s, p }) => <li class="flex justify-between gap-2 border-b border-navy-100 py-1">{p ? <a href={route(p.id, lang)} class="font-medium text-accent-700 underline-offset-2 hover:underline">{s.name}</a> : <span class="text-navy-800">{s.name}</span>}<span class="tabular-nums text-right text-navy-600">{usd(s.cap)}{s.next && <span class="block text-xs">{usd(s.next.cap)} from {day(s.next.from)}</span>}</span></li>)}
     </ul>
+    <p class="mt-2 text-sm text-navy-600">States in blue have their own page; every other limit, with its law, is on <a href={route('small-claims-court-limits', lang)} class="font-medium text-accent-700 underline">the full table</a>.</p>
     <p class="mt-3 text-sm text-navy-700">City page: <a href={route('los-angeles-small-claims-court', lang)} class="font-medium text-accent-700 underline">LA small claims court</a>, the Los Angeles Superior Court.</p>
   </section>
   <section data-chrome class="mt-8">
     <h2 class="mb-3 text-2xl font-bold text-navy-900">Suing in small claims: the guides</h2>
     <ul class="grid gap-3 sm:grid-cols-2">
-      {guides.map((p) => <li class="rounded-lg border border-navy-200 bg-white px-4 py-3"><a href={route(p.id, lang)} class="font-semibold text-accent-700 underline-offset-2 hover:underline">{p.h1.split(':')[0]}</a><p class="mt-1 text-sm text-navy-600">{p.card}</p></li>)}
+      {guides.map((p) => <li class="rounded-lg border border-navy-200 bg-white px-4 py-3"><a href={route(p.id, lang)} class="font-semibold text-accent-700 underline-offset-2 hover:underline">{p.nav}</a><p class="mt-1 text-sm text-navy-600">{p.card}</p></li>)}
     </ul>
   </section>
   <div class="mt-8 space-y-3">

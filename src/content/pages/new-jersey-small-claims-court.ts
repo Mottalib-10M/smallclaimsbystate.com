@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
-import { st } from '../../lib/engine/claims';
+import { st, idx } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('NJ');
 export default definePage({
   id: 'new-jersey-small-claims-court', group: 'states', order: 15, slug: 'new-jersey-small-claims-court',
@@ -16,11 +16,11 @@ export default definePage({
 <h2>New Jersey small claims court or the Special Civil Part?</h2>
 <p>Between ${usd(S.cap)} and $20,000 you have no small claims option: the claim goes to the regular track of the Special Civil Part. Under ${usd(S.cap)} the small claims section is the simpler route, with a single short complaint form and a hearing before a judge, usually without lawyers on either side.</p>
 ${factsTable(h, 'NJ')}
-${h.mini('cost', { title: 'The cost of a New Jersey small claim', defaults: { claim: 2000, fee: 35, service: 10 } })}
+${h.mini('cost', { title: 'The cost of a New Jersey small claim', defaults: { st: idx('NJ'), claim: 2000, service: 10 }, locked: ['st'] })}
 <h2>Counting the fee when there are several defendants</h2>
 <p>Suing a contractor and the company he works for, or two former roommates, means two defendants. Each one adds $5 to the filing fee and $10 to the mail service, so a claim against two people costs ${usd(S.fee![0][1] + 5 + 20)} before any other expense. If the court cannot deliver the papers by mail, a court officer or a private server has to do it, at a further charge that the clerk will tell you. Ask for these costs in the complaint: when you win, the judge can add them to what the other side owes.</p>
-<h2>New Jersey and its neighbours</h2>
-${neighboursTable(h, 'NJ')}
+<h2>New Jersey and its neighbors</h2>
+${neighborsTable(h, 'NJ')}
 <p>See ${h.a('new-york-small-claims-court', 'New York’s three limits')} and ${h.a('how-to-sue-someone-in-small-claims-court', 'the steps of a case')}.</p>`,
   faqs: [
     { q: 'What is the small claims limit in New Jersey?', a: '$5,000 in the small claims section of the Special Civil Part. Claims up to $20,000 go to the Special Civil Part itself. Security deposit cases between landlord and tenant can also be heard in small claims within the same limit. A claim above $20,000 goes to the Law Division of the Superior Court.', open: true },

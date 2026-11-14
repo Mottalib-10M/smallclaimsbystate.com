@@ -1,9 +1,9 @@
-/** Shared pieces of a state page: the facts table, the neighbours, the sources. All figures from the engine. */
-import { st, idx, rankOf, feeFor, limitFor, N_STATES, RETRIEVED, type StateRow } from './engine/claims';
+/** Shared pieces of a state page: the facts table, the neighbors, the sources. All figures from the engine. */
+import { st, idx, rankOf, feeFor, feeLabel, limitFor, N_STATES, RETRIEVED, type StateRow } from './engine/claims';
 import { usd, day } from './fmt';
 import type { Helpers } from './page-types';
 
-export const NEIGHBOURS: Record<string, string[]> = {
+export const NEIGHBORS: Record<string, string[]> = {
   AZ: ['CA', 'NV', 'UT', 'NM'], CA: ['OR', 'NV', 'AZ'], CO: ['UT', 'NM', 'KS', 'NE', 'WY'], CT: ['NY', 'MA', 'RI'],
   FL: ['GA', 'AL'], GA: ['FL', 'AL', 'TN', 'NC', 'SC'], ID: ['WA', 'OR', 'NV', 'UT', 'WY', 'MT'], IN: ['IL', 'OH', 'MI', 'KY'],
   MD: ['VA', 'PA', 'DE', 'WV', 'DC'], MI: ['OH', 'IN', 'WI'], NJ: ['NY', 'PA', 'DE'], NY: ['NJ', 'CT', 'PA', 'MA', 'VT'],
@@ -13,7 +13,9 @@ const READ = { statute: 'statute text read', court: 'court page read', index: 'o
 export const readHow = (s: StateRow) => READ[s.read];
 export function factsTable(h: Helpers, code: string) {
   const s = st(code);
-  const fees = s.fee ? s.fee.map(([upTo, f], i) => `${usd(f)} up to ${usd(Math.min(upTo, s.cap))}${i === s.fee!.length - 1 ? '' : ''}`).join('; ') : 'Set by each county or court: ask the clerk';
+  // Same wording as the checkers and the cost calculator (feeLabel): one source per state.
+  const local = (s.feeLocal ?? []).map(([where, f]) => `; ${usd(f)} in ${where}`).join('');
+  const fees = s.fee ? s.fee.map(([upTo, f]) => `${usd(f)} up to ${usd(Math.min(upTo, s.cap))}`).join('; ') + local : feeLabel(s, s.cap);
   const rows: Array<[string, string]> = [
     ['Small claims limit', usd(s.cap) + (s.capBiz ? ` (${usd(s.capBiz)} for businesses and other entities)` : '')],
     ...(s.next ? [['Scheduled change', `${usd(s.next.cap)} for cases filed from ${day(s.next.from)}`] as [string, string]] : []),
@@ -22,9 +24,9 @@ export function factsTable(h: Helpers, code: string) {
   ];
   return h.table(['', `${s.name}`], rows, `${s.name} small claims at a glance`);
 }
-export function neighboursTable(h: Helpers, code: string) {
-  const list = [code, ...(NEIGHBOURS[code] ?? [])].map(st);
-  return h.table(['State', 'Limit', 'Filing fee at the limit', 'Court'], list.map((s) => [s.code === code ? `<strong>${s.name}</strong>` : s.name, usd(s.cap), (() => { const f = feeFor(s, limitFor(s)); return f === null ? 'by county' : usd(f); })(), s.court]), `${st(code).name} and its neighbours`, ['l', 'r', 'r', 'l']);
+export function neighborsTable(h: Helpers, code: string) {
+  const list = [code, ...(NEIGHBORS[code] ?? [])].map(st);
+  return h.table(['State', 'Limit', 'Filing fee at the limit', 'Court'], list.map((s) => [s.code === code ? `<strong>${s.name}</strong>` : s.name, usd(s.cap), (feeFor(s, limitFor(s)) === null ? 'by county' : feeLabel(s, limitFor(s))), s.court]), `${st(code).name} and its neighbors`, ['l', 'r', 'r', 'l']);
 }
 export function stateSources(code: string): Array<[string, string]> {
   const s = st(code);

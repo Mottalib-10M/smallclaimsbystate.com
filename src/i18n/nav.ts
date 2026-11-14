@@ -4,8 +4,8 @@ import type { Group } from '../lib/page-types';
 export interface NavLink { href: string; label: string } export interface NavCategory { label: string; links: NavLink[] }
 const CORE: Record<string, string> = { home: 'Small claims limit checker', method: 'How we read the laws', about: 'About', widget: 'Embed the checker', contact: 'Contact', editorial: 'Editorial policy', privacy: 'Privacy', terms: 'Legal notice', cookies: 'Cookies' };
 export const GROUPS: Array<{ id: Group; label: string }> = [
-  { id: 'guides', label: 'Suing in small claims' },
   { id: 'states', label: 'Small claims by state' },
+  { id: 'guides', label: 'Suing in small claims: the guides' },
 ];
 export const label = (id: string, _lang?: Locale) => CORE[id] ?? pageById(id)?.nav ?? id;
 const link = (id: string, lang: Locale): NavLink => ({ href: route(id, lang), label: label(id) });

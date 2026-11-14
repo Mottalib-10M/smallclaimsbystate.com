@@ -5,7 +5,7 @@ const withFee = STATES.filter((s) => s.fee);
 const atCap = withFee.map((s) => ({ s, f: feeFor(s, limitFor(s))! })).sort((a, b) => a.f - b.f);
 export default definePage({
   id: 'how-much-does-it-cost-to-sue-someone', group: 'guides', order: 3, slug: 'how-much-does-it-cost-to-sue-someone',
-  nav: 'What it costs to sue', card: 'Fee, service, time off work: the full cost against the amount you claim.',
+  nav: 'Total cost of a suit, time off included', card: 'Fee, service, time off work: the full cost against the amount you claim.',
   title: 'Cost to Sue Someone in Small Claims: 2026 Fees by State',
   description: 'How much it costs to sue someone in small claims court in 2026: official filing fees from $10 to $295, service, time off work, and what the loser pays back.',
   h1: 'How much does it cost to sue someone in small claims court?',

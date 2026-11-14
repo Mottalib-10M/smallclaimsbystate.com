@@ -3,7 +3,7 @@ import { st, median, N_STATES } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
 export default definePage({
   id: 'how-to-sue-someone-in-small-claims-court', group: 'guides', order: 2, slug: 'how-to-sue-someone-in-small-claims-court',
-  nav: 'How to sue someone', card: 'Seven steps, from the demand letter to collecting what the judge awards.',
+  nav: 'The 7 steps of a case, in order', card: 'Seven steps, from the demand letter to collecting what the judge awards.',
   title: 'Sue Someone in Small Claims Court: 7 Steps for 2026',
   description: 'How to sue someone in small claims court in 2026: check your state’s limit, send a demand letter, file, serve, prepare evidence, win and collect. With a check.',
   h1: 'How to sue someone in small claims court, step by step',

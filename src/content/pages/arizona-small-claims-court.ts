@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
-import { st, rankOf } from '../../lib/engine/claims';
+import { st, idx, rankOf } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('AZ');
 export default definePage({
   id: 'arizona-small-claims-court', group: 'states', order: 16, slug: 'arizona-small-claims-court',
@@ -18,10 +18,11 @@ export default definePage({
 ${factsTable(h, 'AZ')}
 <h2>Statewide fee or Maricopa fee</h2>
 <p>Which schedule applies depends on the court where you file, not on where you live. A landlord in Phoenix suing a former tenant who moved to Tucson files in Pima County and pays the statewide ${usd(S.fee![0][1])}; the same claim against a tenant still living in Mesa goes to a Maricopa justice court at $58. Serving the papers is a separate cost, paid to a constable or a private process server.</p>
-${h.mini('cost', { title: 'What an Arizona small claim costs you', defaults: { claim: 3000, fee: 58 } })}
-<h2>Arizona and its neighbours</h2>
+<p>The calculator below counts the statewide ${usd(S.fee![0][1])}. If you file in a Maricopa County justice court, type $58 under “A different filing fee”.</p>
+${h.mini('cost', { title: 'What an Arizona small claim costs you', defaults: { st: idx('AZ'), claim: 3000 }, locked: ['st'] })}
+<h2>Arizona and its neighbors</h2>
 <p>Arizona’s ceiling is the lowest in its corner of the country. Someone suing a business based in Nevada or Utah may find the other state’s court both available and roomier, because the case usually belongs where the defendant lives or where the deal was made.</p>
-${neighboursTable(h, 'AZ')}
+${neighborsTable(h, 'AZ')}
 <p>Compare all states on ${h.a('small-claims-court-limits', 'the table of small claims limits')}, or see ${h.a('california-small-claims-court', 'how California splits its limit')}.</p>`,
   faqs: [
     { q: 'What is the small claims limit in Arizona?', a: '$5,000, under A.R.S. § 22-503. Pages that still say $3,500 or $2,500 are out of date. The small claims division sits in each Justice Court. A claim above $5,000 cannot be heard there, so it must be reduced or brought through the regular civil process.', open: true },

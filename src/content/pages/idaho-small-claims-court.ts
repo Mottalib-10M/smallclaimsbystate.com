@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
 import { st, rankOf } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('ID');
 export default definePage({
   id: 'idaho-small-claims-court', group: 'states', order: 25, slug: 'idaho-small-claims-court',
@@ -18,8 +18,8 @@ export default definePage({
 ${factsTable(h, 'ID')}
 ${h.mini('deadline', { title: 'How long you have left to file', defaults: { years: 5, ago: 30 } })}
 <p>The deadline calculator uses the period you enter; Idaho’s limitation periods depend on the kind of claim and are not read here.</p>
-<h2>Idaho and its neighbours</h2>
-${neighboursTable(h, 'ID')}
+<h2>Idaho and its neighbors</h2>
+${neighborsTable(h, 'ID')}
 <p>See ${h.a('utah-small-claims-court', 'Utah’s $20,000')} and ${h.a('small-claims-court-limits', 'the states that changed recently')}.</p>`,
   faqs: [
     { q: 'What is the Idaho small claims limit in 2026?', a: '$15,000 from July 1, 2026, under Idaho Code § 1-2301 as amended by S1330. It was $5,000 before. Most lists online still give $5,000. A larger claim goes to the Magistrate Division’s regular civil docket or the District Court, with formal rules.', open: true },

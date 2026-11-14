@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
 import { st, rankOf } from '../../lib/engine/claims';
 import { usd, day } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('GA');
 export default definePage({
   id: 'georgia-small-claims-court', group: 'states', order: 13, slug: 'georgia-small-claims-court',
@@ -20,8 +20,8 @@ ${factsTable(h, 'GA')}
 <h2>Fees and service in Georgia’s magistrate courts</h2>
 <p>There is no statewide fee for a statement of claim: each county’s magistrate court publishes its own schedule, and the sheriff charges to serve each defendant. A plaintiff who cannot pay can file a pauper’s affidavit. The same act, HB 999, also revises how magistrate courts collect fees, so check the clerk’s current figures before you file in 2027.</p>
 ${h.mini('deadline', { title: 'Time left to file your Georgia claim' })}
-<h2>Georgia and its neighbours</h2>
-${neighboursTable(h, 'GA')}
+<h2>Georgia and its neighbors</h2>
+${neighborsTable(h, 'GA')}
 <p>Steps of a case: ${h.a('how-to-sue-someone-in-small-claims-court', 'how to sue someone in small claims court')}.</p>`,
   faqs: [
     { q: 'What is the small claims limit in Georgia in 2026?', a: '$15,000 in magistrate court for cases filed through December 31, 2026, under O.C.G.A. § 15-10-2(5). Magistrate court is the Georgia court for small civil cases, with simplified procedure and no jury. A claim above the limit goes to state or superior court, where formal rules apply.', open: true },

@@ -10,7 +10,10 @@ export interface StateRow {
   next: { cap: number; from: string } | null;
   court: string; cite: string; url: string; read: 'statute' | 'court' | 'index'; note: string;
   fee: number[][] | null; feeUrl: string | null; feeNote: string;
+  /** County figures quoted in the same readings ([where, fee]): Maricopa in Arizona, Wabash in Indiana. */
+  feeLocal: Array<[string, number]> | null;
 }
+const usd0 = (x: number) => `$${Math.round(x).toLocaleString('en-US')}`;
 export const STATES: StateRow[] = (DATA as unknown as { states: StateRow[] }).states;
 export const RETRIEVED = (DATA as { retrieved_at: string }).retrieved_at;
 export const N_STATES = STATES.length;
@@ -38,6 +41,15 @@ export function feeFor(s: StateRow, amount: number): number | null {
   for (const [upTo, fee] of s.fee) if (amount <= upTo) return fee;
   return s.fee[s.fee.length - 1][1];
 }
+/** The one wording of the filing fee, used by every checker, calculator and table of the site (testeurs naifs du
+ *  2026-11-14 : « $30 » en tete de page et 58 $ dans le calculateur, « ask the clerk » puis 75 $ preremplis).
+ *  Statewide schedule first, then the county figures read with it; never a figure that is not in states.json. */
+export function feeLabel(s: StateRow, amount: number): string {
+  const f = feeFor(s, amount);
+  const local = (s.feeLocal ?? []).map(([where, fee]) => `${usd0(fee)} in ${where}`).join('; ');
+  if (f !== null) return local ? `${usd0(f)} statewide; ${local}` : usd0(f);
+  return local ? `Varies by county, e.g. ${local}: ask your clerk` : 'Ask the court clerk: no statewide figure on this site';
+}
 export interface Check { cap: number; fits: boolean; over: number; room: number; fee: number | null; feeShare: number | null }
 export function check(s: StateRow, amount: number, party: Party = 'person', filed = RETRIEVED): Check {
   const cap = limitFor(s, party, filed);
@@ -62,7 +74,7 @@ export function simpleInterest(amount: number, ratePct: number, months: number) 
   const interest = amount * (ratePct / 100) * (months / 12);
   return { interest, total: amount + interest };
 }
-/** A judgment paid in monthly instalments: number of payments, the last one, and the interest that accrues meanwhile. */
+/** A judgment paid in monthly installments: number of payments, the last one, and the interest that accrues meanwhile. */
 export function payPlan(balance: number, monthly: number, ratePct = 0) {
   if (monthly <= 0 || balance <= 0) return { months: Infinity, interest: 0 };
   let b = balance, m = 0, interest = 0;
@@ -83,7 +95,6 @@ export const LITTLE_TUCKER_CAP = OTHER.federal.littleTucker.cap;
 export type Target = 'private' | 'state' | 'federal';
 export type Kind = 'money' | 'tort';
 export interface Route { court: string; first: string | null; law: string; deadline: string; small: boolean }
-const usd0 = (x: number) => `$${Math.round(x).toLocaleString('en-US')}`;
 /** Which court usually hears a money claim: small claims for a person or business sued for an amount under the
  *  state's limit, the state's ordinary civil court above it; for the United States, the Court of Federal Claims
  *  (contract and other money claims, also the district courts up to $10,000), or a written claim to the agency and
@@ -97,13 +108,13 @@ export function routeFor(s: StateRow, target: Target, kind: Kind, amount: number
     return { court: both ? 'U.S. Court of Federal Claims or U.S. District Court' : 'U.S. Court of Federal Claims', first: null, law: both ? `${f.tucker.cite} and ${f.littleTucker.cite}` : f.tucker.cite, deadline: `${f.cfcDeadline.years} years in the Court of Federal Claims (${f.cfcDeadline.cite})`, small: false };
   }
   if (target === 'state') {
-    if (s.code === 'NY') return { court: 'New York Court of Claims', first: null, law: OTHER.nyCourtOfClaims.cite, deadline: 'Short notice periods: Court of Claims Act § 10', small: false };
+    if (s.code === 'NY') return { court: 'New York Court of Claims', first: null, law: OTHER.nyCourtOfClaims.cite, deadline: 'Short: the notice period is in Court of Claims Act § 10; ask the clerk at once', small: false };
     return { court: `${s.name}’s own route for claims against the state`, first: 'Ask the clerk or the attorney general’s office which body hears claims against the state', law: `${s.name} law on claims against the state`, deadline: 'Often shorter than for a private claim: ask first', small: false };
   }
   const cap = limitFor(s, party);
   return amount <= cap
-    ? { court: `${s.court}`, first: 'A demand letter, then the claim form at the clerk', law: s.cite, deadline: 'Your state’s limitation period for the kind of claim', small: true }
-    : { court: `${s.name} regular civil court`, first: `Or cut the claim to the ${usd0(cap)} limit and give up the rest`, law: s.cite, deadline: 'Your state’s limitation period for the kind of claim', small: false };
+    ? { court: `${s.court}`, first: 'A demand letter, then the claim form at the clerk', law: s.cite, deadline: 'Depends on the kind of claim and is not given here: ask the clerk before you wait', small: true }
+    : { court: `${s.name} regular civil court`, first: `Or cut the claim to the ${usd0(cap)} limit and give up the rest`, law: s.cite, deadline: 'Depends on the kind of claim and is not given here: ask the clerk before you wait', small: false };
 }
 /** What to write on the claim: the sum owed, other losses and simple interest, against the state's limit. */
 export function claimTotal(s: StateRow, o: { owed: number; other: number; ratePct: number; months: number; party?: Party }) {

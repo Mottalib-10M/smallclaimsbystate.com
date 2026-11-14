@@ -4,7 +4,7 @@ import { usd, day } from '../../lib/fmt';
 const F = OTHER_COURTS.federal;
 export default definePage({
   id: 'claims-court', group: 'guides', order: 7, slug: 'claims-court',
-  nav: 'Which claims court?', card: 'Small claims, a state court of claims or the U.S. Court of Federal Claims: who hears what.',
+  nav: 'Suing a state or the U.S. government', card: 'Small claims, a state court of claims or the U.S. Court of Federal Claims: who hears what.',
   title: 'Claims Court: Small Claims, State or Federal Claims 2026',
   description: 'Claims court in 2026: small claims for people and businesses, a court of claims against a state, the U.S. Court of Federal Claims for federal money. Free check.',
   h1: 'Claims court: which court hears your claim?',
@@ -17,7 +17,7 @@ export default definePage({
 ${h.table(['State', 'Small claims limit', 'Court that hears it'], ['CA', 'TX', 'NY', 'FL', 'GA', 'IL'].map((c) => [st(c).name, usd(st(c).cap), st(c).court]), 'Small claims, the claims court of everyday disputes (six large states)', ['l', 'r', 'l'])}
 <p>Every state is on ${h.a('small-claims-court-limits', 'the table of small claims limits')}, and the ${h.a('how-to-sue-someone-in-small-claims-court', 'step-by-step guide')} explains the procedure.</p>
 <h2>A court of claims for suits against a state</h2>
-<p>A state agency, a state university or a state hospital is not sued like a neighbour. In New York, the Court of Claims hears claims against the state for breach of contract and for the torts of its officers and employees, and the Court of Claims Act sets deadlines for filing a claim or a notice of intention that are much shorter than the usual limitation periods. Other states use their own body or their ordinary courts, each under its own law. Before anything else, ask the clerk or the attorney general’s office which body hears your claim and by when.</p>
+<p>A state agency, a state university or a state hospital is not sued like a neighbor. In New York, the Court of Claims hears claims against the state for breach of contract and for the torts of its officers and employees, and the Court of Claims Act sets deadlines for filing a claim or a notice of intention that are much shorter than the usual limitation periods. Other states use their own body or their ordinary courts, each under its own law. Before anything else, ask the clerk or the attorney general’s office which body hears your claim and by when.</p>
 ${h.mini('court', { title: 'Try a claim against a New York agency', defaults: { target: 2, st: idx('NY'), amount: 6000 } })}
 <h2>The U.S. Court of Federal Claims</h2>
 <p>The Court of Federal Claims sits in the ${h.ext('https://www.uscfc.uscourts.gov/court-location-hours', 'National Courts Building, 717 Madison Place NW, Washington, D.C.')} and hears money claims against the United States founded on the Constitution, a federal statute or regulation, or a contract with the government, under ${h.ext(F.tucker.url, F.tucker.cite)}. For claims up to ${usd(LITTLE_TUCKER_CAP)}, the federal district courts share that power under ${h.ext(F.littleTucker.url, F.littleTucker.cite)}, so a small claim can be brought closer to home. The time limit is six years under ${h.ext(F.cfcDeadline.url, F.cfcDeadline.cite)}.</p>

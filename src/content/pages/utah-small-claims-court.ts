@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
 import { st, idx, rankOf, countAtLeast } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('UT');
 export default definePage({
   id: 'utah-small-claims-court', group: 'states', order: 22, slug: 'utah-small-claims-court',
@@ -17,9 +17,9 @@ export default definePage({
 <p>Most people in small claims have no lawyer, and for them the ${usd(S.cap)} is simply the amount owed. When a contract lets the winner recover attorney fees, those fees use up part of the limit: a claim of $18,000 plus $3,000 of fees is ${usd(21000)}, over the line. Reduce the claim, drop the fees, or file an ordinary civil case instead.</p>
 ${factsTable(h, 'UT')}
 ${h.mini('limit', { title: 'Check your claim against the 2030 Utah limit', defaults: { st: idx('UT'), amount: 22000, when: 2 }, locked: ['st'] })}
-<h2>Utah and its neighbours</h2>
-<p>Utah’s ceiling is four times Arizona’s and well above Idaho’s new figure. A Utah business suing a customer in a neighbouring state usually has to use that state’s court, and its lower limit.</p>
-${neighboursTable(h, 'UT')}
+<h2>Utah and its neighbors</h2>
+<p>Utah’s ceiling is four times Arizona’s and well above Idaho’s new figure. A Utah business suing a customer in a neighboring state usually has to use that state’s court, and its lower limit.</p>
+${neighborsTable(h, 'UT')}
 <p>See ${h.a('texas-small-claims-court', 'how Texas counts attorney fees')} and ${h.a('idaho-small-claims-court', 'Idaho’s 2026 increase')}.</p>`,
   faqs: [
     { q: 'What is the Utah small claims limit in 2026?', a: '$20,000 including attorney fees, for cases filed through December 31, 2029. Small claims cases are heard in the Justice Court. A larger claim must be reduced or brought as an ordinary civil case, where the rules of procedure apply in full.', open: true },

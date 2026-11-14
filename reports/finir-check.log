@@ -1,0 +1,825 @@
+
+> smallclaimsbystate.com@0.1.0 check
+> npm run build && npx vitest run && node scripts/typo-nbsp.mjs dist --check && node scripts/check-legal.mjs && python3 scripts/check-seo.py . && python3 scripts/check-unique.py . && python3 scripts/check-trame.py . && python3 scripts/check-liens.py . && node scripts/check-layout.mjs . && node scripts/check-sources.mjs . && python3 scripts/check-simulateurs.py . && python3 scripts/check-hreflang.py . && python3 scripts/check-anglais.py . && python3 scripts/check-portefeuille.py . && python3 scripts/check-cookies.py . && node scripts/check-url-propre.mjs . && node scripts/check-premier-ecran.mjs . && node scripts/check-droits.mjs . && node scripts/check-copie.mjs . && node scripts/check-nombres.mjs . && node scripts/check-contraste.mjs . && node scripts/check-saisie.mjs . && python3 scripts/check-regles.py . && python3 scripts/check-motcle.py .
+
+
+> smallclaimsbystate.com@0.1.0 build
+> astro build && node scripts/typo-nbsp.mjs && python3 scripts/check-snippets.py dist
+
+18:46:55 [types] Generated 107ms
+18:46:55 [build] output: "static"
+18:46:55 [build] mode: "static"
+18:46:55 [build] directory: /Users/mottalib/Documents/GitHub/a-publier/Mottalib-10M/smallclaimsbystate.com/dist/
+18:46:55 [build] Collecting build info...
+18:46:55 [build] ✓ Completed in 122ms.
+18:46:55 [build] Building static entrypoints...
+18:46:56 [vite] ✓ built in 1.01s
+18:46:56 [vite] ✓ built in 518ms
+18:46:56 [build] Rearranging server assets...
+
+ generating static routes 
+18:46:56   ├─ /404.html (+9ms) 
+18:46:56   ├─ /embed/small-claims-calculator/index.html (+15ms) 
+18:46:57   ├─ /en/about/index.html (+7ms) 
+18:46:57   ├─ /en/contact/index.html (+4ms) 
+18:46:57   ├─ /en/cookies/index.html (+4ms) 
+18:46:57   ├─ /en/editorial-policy/index.html (+4ms) 
+18:46:57   ├─ /en/legal-notice/index.html (+3ms) 
+18:46:57   ├─ /en/method/index.html (+6ms) 
+18:46:57   ├─ /en/privacy/index.html (+4ms) 
+18:46:57   ├─ /en/widget/index.html (+3ms) 
+18:46:57   ├─ /en/index.html (+18ms) 
+18:46:57   ├─ /en/how-to-sue-someone/index.html (+7ms) 
+18:46:57   ├─ /en/small-claims-court-limits/index.html (+5ms) 
+18:46:57   ├─ /en/how-to-sue-someone-in-small-claims-court/index.html (+5ms) 
+18:46:57   ├─ /en/how-much-does-it-cost-to-sue-someone/index.html (+4ms) 
+18:46:57   ├─ /en/los-angeles-small-claims-court/index.html (+5ms) 
+18:46:57   ├─ /en/small-claims-court-filing-fee/index.html (+5ms) 
+18:46:57   ├─ /en/small-claims-demand-letter/index.html (+4ms) 
+18:46:57   ├─ /en/collecting-a-small-claims-judgment/index.html (+5ms) 
+18:46:57   ├─ /en/claims-court/index.html (+5ms) 
+18:46:57   ├─ /en/how-to-take-someone-to-small-claims-court/index.html (+4ms) 
+18:46:57   ├─ /en/small-claims-court-fees/index.html (+3ms) 
+18:46:57   ├─ /en/file-small-claims/index.html (+3ms) 
+18:46:57   ├─ /en/texas-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/california-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/small-claims-court-near-me/index.html (+3ms) 
+18:46:57   ├─ /en/florida-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/small-claims-court-paperwork/index.html (+3ms) 
+18:46:57   ├─ /en/georgia-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/how-to-sue-someone-for-defamation-of-character/index.html (+3ms) 
+18:46:57   ├─ /en/new-york-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/new-jersey-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/arizona-small-claims-court/index.html (+4ms) 
+18:46:57   ├─ /en/colorado-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/connecticut-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/maryland-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/michigan-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/north-carolina-small-claims-court/index.html (+2ms) 
+18:46:57   ├─ /en/utah-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/wisconsin-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/indiana-small-claims-court/index.html (+3ms) 
+18:46:57   ├─ /en/idaho-small-claims-court/index.html (+2ms) 
+18:46:57   ├─ /llms.txt (+1ms) 
+18:46:57   ├─ /index.html (+5ms) 
+18:46:57 ✓ Completed in 235ms.
+
+18:46:57 [build] ✓ Completed in 1.80s.
+18:46:57 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+18:46:57 [build] 43 page(s) built in 1.95s
+18:46:57 [build] Complete!
+typo-nbsp: 0 espace(s) rendue(s) insécable(s) dans 0 page(s)
+check-snippets : 34 pages indexables, titres 50-60, descriptions 150-160, ordre des mots et unicite conformes
+
+ RUN  v4.1.12 /Users/mottalib/Documents/GitHub/a-publier/Mottalib-10M/smallclaimsbystate.com
+
+ ❯ tests/fees-consistency.test.ts (121 tests | 37 failed) 37ms
+     × AL: checker, cost calculator and tables agree 6ms
+     × AR: checker, cost calculator and tables agree 1ms
+     × CT: checker, cost calculator and tables agree 1ms
+     × DC: checker, cost calculator and tables agree 1ms
+     × GA: checker, cost calculator and tables agree 1ms
+     × ID: checker, cost calculator and tables agree 1ms
+     × IL: checker, cost calculator and tables agree 0ms
+     × IN: checker, cost calculator and tables agree 0ms
+     × KS: checker, cost calculator and tables agree 1ms
+     × KY: checker, cost calculator and tables agree 0ms
+     × LA: checker, cost calculator and tables agree 0ms
+     × ME: checker, cost calculator and tables agree 0ms
+     × MD: checker, cost calculator and tables agree 0ms
+     × MN: checker, cost calculator and tables agree 0ms
+     × MS: checker, cost calculator and tables agree 0ms
+     × MO: checker, cost calculator and tables agree 0ms
+     × MT: checker, cost calculator and tables agree 0ms
+     × NE: checker, cost calculator and tables agree 0ms
+     × NV: checker, cost calculator and tables agree 0ms
+     × NH: checker, cost calculator and tables agree 0ms
+     × NM: checker, cost calculator and tables agree 0ms
+     × NC: checker, cost calculator and tables agree 0ms
+     × ND: checker, cost calculator and tables agree 0ms
+     × OH: checker, cost calculator and tables agree 0ms
+     × OK: checker, cost calculator and tables agree 0ms
+     × OR: checker, cost calculator and tables agree 0ms
+     × PA: checker, cost calculator and tables agree 0ms
+     × RI: checker, cost calculator and tables agree 0ms
+     × SC: checker, cost calculator and tables agree 0ms
+     × SD: checker, cost calculator and tables agree 0ms
+     × TN: checker, cost calculator and tables agree 0ms
+     × TX: checker, cost calculator and tables agree 0ms
+     × UT: checker, cost calculator and tables agree 0ms
+     × VT: checker, cost calculator and tables agree 0ms
+     × VA: checker, cost calculator and tables agree 0ms
+     × WV: checker, cost calculator and tables agree 0ms
+     × WI: checker, cost calculator and tables agree 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 37 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > AL: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Alabama. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > AR: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Arkansas. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > CT: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Connecticut. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > DC: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for District of Columbia. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > GA: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Georgia. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > ID: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Idaho. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > IL: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Illinois. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > IN: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Indiana (it varies by county, e.g. $97 in Wabash County, one defendant). Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > KS: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Kansas. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > KY: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Kentucky. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > LA: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Louisiana. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > ME: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Maine. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > MD: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Maryland. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > MN: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Minnesota. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > MS: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Mississippi. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > MO: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Missouri. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > MT: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Montana. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > NE: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Nebraska. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > NV: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Nevada. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > NH: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for New Hampshire. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > NM: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for New Mexico. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > NC: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for North Carolina. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > ND: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for North Dakota. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > OH: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Ohio. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > OK: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Oklahoma. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > OR: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Oregon. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > PA: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Pennsylvania. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[27/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > RI: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Rhode Island. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[28/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > SC: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for South Carolina. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[29/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > SD: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for South Dakota. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[30/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > TN: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Tennessee. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[31/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > TX: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Texas. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[32/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > UT: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Utah. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[33/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > VT: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Vermont. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[34/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > VA: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Virginia. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[35/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > WV: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for West Virginia. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[36/37]⎯
+
+ FAIL  tests/fees-consistency.test.ts > fees: one wording per state, everywhere > WI: checker, cost calculator and tables agree
+AssertionError: expected 'Filing fee not counted yet: this site…' to match /ask the clerk/
+
+- Expected:
+/ask the clerk/
+
++ Received:
+"Filing fee not counted yet: this site gives no statewide figure for Wisconsin. Ask the clerk and type it above."
+
+ ❯ tests/fees-consistency.test.ts:37:28
+     35|       if (f === null) {
+     36|         expect(row(cost.rows, 'Filing fee')).toBe('Not counted yet');
+     37|         expect(cost.alert).toMatch(/ask the clerk/);
+       |                            ^
+     38|         for (const [, fee] of s.feeLocal ?? []) expect(cost.alert).toC…
+     39|       } else {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[37/37]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  37 failed | 130 passed (167)
+   Start at  18:46:58
+   Duration  678ms (transform 663ms, setup 0ms, import 837ms, tests 153ms, environment 0ms)
+

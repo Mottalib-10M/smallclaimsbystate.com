@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
-import { st, rankOf } from '../../lib/engine/claims';
+import { st, idx, rankOf } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('WI');
 export default definePage({
   id: 'wisconsin-small-claims-court', group: 'states', order: 23, slug: 'wisconsin-small-claims-court',
@@ -16,9 +16,9 @@ export default definePage({
 <h2>Which Wisconsin small claims court limit applies to you</h2>
 <p>Ask what the claim is about rather than how large it is. Money promised under an agreement, rent, a deposit or a loan uses the ${usd(S.cap)} ceiling. Damage caused by someone’s carelessness, such as a car accident, a fall or harm to property, is a tort and uses the $5,000 ceiling. The calculator above checks the general figure; for a tort, compare your amount with $5,000.</p>
 ${factsTable(h, 'WI')}
-${h.mini('cost', { title: 'What a Wisconsin small claim costs you', defaults: { claim: 4000 } })}
-<h2>Wisconsin and its neighbours</h2>
-${neighboursTable(h, 'WI')}
+${h.mini('cost', { title: 'What a Wisconsin small claim costs you', defaults: { st: idx('WI'), claim: 4000 }, locked: ['st'] })}
+<h2>Wisconsin and its neighbors</h2>
+${neighborsTable(h, 'WI')}
 <p>See ${h.a('michigan-small-claims-court', 'Michigan across the lake')} or ${h.a('small-claims-court-limits', 'every state’s limit')}.</p>`,
   faqs: [
     { q: 'What is the small claims limit in Wisconsin?', a: '$10,000 for contract and debt claims and $5,000 for tort claims, including personal injury, under Wis. Stat. § 799.01. Evictions also use the small claims procedure in Wisconsin. Above the limits, the case goes to the circuit court’s regular civil docket, with formal pleadings.', open: true },

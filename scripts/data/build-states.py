@@ -6,26 +6,28 @@ Each row keeps the law or court rule, the address read and HOW it was read:
   index   = state site refused our connection (403 / connection refused from our network): the official
             page was read through a search index restricted to the official domain, which quoted the text.
 Fees: only where an official statewide schedule was read; otherwise None (set by county: ask the clerk).
+feeLocal: the county figures quoted in the same readings ([where, fee]), the only fee figures the site gives
+besides the statewide schedule; every calculator and table takes them from here (one source per state).
 Rerun: python3 scripts/data/build-states.py   (no network: the values below are the reading itself)."""
 import json, os, re
 R = '2026-11-13'
-def S(code, name, cap, court, cite, url, read, note='', biz=None, nxt=None, fee=None, feeUrl=None, feeNote=''):
+def S(code, name, cap, court, cite, url, read, note='', biz=None, nxt=None, fee=None, feeUrl=None, feeNote='', feeLocal=None):
     slug = re.sub(r'[^a-z]+', '-', name.lower()).strip('-')
     return dict(code=code, name=name, slug=slug, cap=cap, capBiz=biz, next=nxt, court=court, cite=cite, url=url, read=read,
-                note=note, fee=fee, feeUrl=feeUrl, feeNote=feeNote)
+                note=note, fee=fee, feeUrl=feeUrl, feeNote=feeNote, feeLocal=feeLocal)
 ROWS = [
  S('AL','Alabama',6000,'District Court (small claims docket)','Ala. Code § 12-12-31, as amended by Act 2015-224','https://judicial.alabama.gov/docs/library/docs/smguide.pdf','index'),
  S('AK','Alaska',10000,'District Court (small claims)','Alaska Stat. § 22.15.040(a)','https://public.courts.alaska.gov/web/forms/docs/sc-100.pdf','index',
    'Attorney fees awarded in small claims are capped at $1,000 by the court’s own rules.', fee=[[2500,50],[10000,100]], feeUrl='https://courts.alaska.gov/shc/courtfees.htm', feeNote='Administrative Rule 9 fee table, in effect since May 1, 2023.'),
  S('AZ','Arizona',5000,'Justice Court (small claims division)','Ariz. Rev. Stat. § 22-503','https://www.azleg.gov/ars/22/00503.htm','statute',
-   '', fee=[[5000,30]], feeUrl='https://www.azcourts.gov/courtfilingfees/Justice-Court-Filing-Fees', feeNote='Statewide justice court schedule in effect since December 28, 2024 (AO 2024-211); Maricopa County justice courts publish their own schedule, $58 for a small claims complaint.'),
+   '', fee=[[5000,30]], feeUrl='https://www.azcourts.gov/courtfilingfees/Justice-Court-Filing-Fees', feeNote='Statewide justice court schedule in effect since December 28, 2024 (AO 2024-211); Maricopa County justice courts publish their own schedule, $58 for a small claims complaint.', feeLocal=[['Maricopa County justice courts', 58]]),
  S('AR','Arkansas',5000,'District Court (small claims division)','Ark. Const. amend. 80 and District Court Rule 10','https://arcourts.gov/courts/district-courts','index',
    'The small claims division hears contract, property damage and property recovery claims; district courts hear other civil claims up to $25,000.'),
  S('CA','California',12500,'Superior Court (small claims division)','Cal. Code Civ. Proc. §§ 116.220 and 116.221','https://selfhelp.courts.ca.gov/small-claims/start-case/file','court',
    'Businesses and other entities are limited to $6,250. No one may file more than two claims over $2,500 in a calendar year.', biz=6250,
    fee=[[1500,30],[5000,50],[12500,75]], feeUrl='https://selfhelp.courts.ca.gov/small-claims/start-case/file', feeNote='$100 for anyone who filed more than 12 small claims in the past 12 months.'),
  S('CO','Colorado',7500,'County Court (small claims)','Colo. Rev. Stat. § 13-6-403','https://www.coloradojudicial.gov/self-help/list-fees','court',
-   'A plaintiff may file no more than two claims a month in one county and 18 a year (C.R.S. § 13-6-411).', fee=[[500,31],[7500,55]], feeUrl='https://www.coloradojudicial.gov/self-help/list-fees', feeNote='C.R.S. § 13-32-101(1)(c)(IV).'),
+   'A plaintiff may file no more than two claims a month in one county and 18 a year (C.R.S. § 13-6-411).', fee=[[500,31],[7500,55]], feeUrl='https://www.coloradojudicial.gov/self-help/list-fees', feeNote='Colorado Judicial Branch fee list (fees set by C.R.S. § 13-32-101).'),
  S('CT','Connecticut',5000,'Superior Court (small claims session)','Conn. Gen. Stat. § 51-15(d)','https://www.cga.ct.gov/current/pub/chap_870.htm','statute',
    'Libel and slander claims are excluded from the small claims procedure.'),
  S('DE','Delaware',25000,'Justice of the Peace Court (civil)','10 Del. C. § 9301','https://delcode.delaware.gov/title10/c093/index.html','statute',
@@ -45,7 +47,7 @@ ROWS = [
  S('IL','Illinois',10000,'Circuit Court (small claims)','Ill. S. Ct. R. 281','https://www.illinoiscourts.gov/Resources/fc725e38-19e3-4eaf-b7ae-2292402109d0/SMC_HowtoFileandServeaSmallClaimsComplaintandSummons.pdf','index',
    'Filing fees are set by each county’s circuit clerk.'),
  S('IN','Indiana',10000,'Circuit or Superior Court (small claims docket)','Ind. Code § 33-29-2-4','https://www.in.gov/courts/files/small-claims-manual.pdf','index',
-   'Filing fees are set by county: Wabash County, for one, charges $97 for one defendant.'),
+   'Filing fees are set by county: Wabash County, for one, charges $97 for one defendant.', feeLocal=[['Wabash County, one defendant', 97]]),
  S('IA','Iowa',6500,'District Court (small claims)','Iowa Code § 631.1','https://www.legis.iowa.gov/docs/code/631.1.pdf','statute',
    'The $6,500 limit applies to actions commenced on or after July 1, 2018.', fee=[[6500,115]], feeUrl='https://www.iowacourts.gov/for-the-public/representing-yourself/small-claims', feeNote='Iowa Judicial Branch.'),
  S('KS','Kansas',10000,'District Court (small claims)','Kan. Stat. § 61-2703','https://www.ksrevisor.gov/statutes/chapters/ch61/061_027_0003.html','statute',

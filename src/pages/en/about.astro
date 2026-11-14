@@ -17,13 +17,13 @@ const nFee = STATES.filter((s) => s.fee).length;
     <h1>About Small Claims By State</h1>
     <p>{AUTHOR_DESC.en}</p>
     <h2>Why this site exists</h2>
-    <p>Someone owed a deposit, a repair bill or a loan asks two plain questions before going to court: can I claim this amount in small claims where the other side lives, and what will it cost me to try. The pages that rank for those questions belong mostly to law firms and legal-forms sites. Many reuse one national list of limits that has not been checked against the statutes in years, and some ask for an e-mail address before they show a form.</p>
+    <p>Someone owed a deposit, a repair bill or a loan asks two plain questions before going to court: can I claim this amount in small claims where the other side lives, and what will it cost me to try. The pages that come up first in a search for those questions belong mostly to law firms and legal-forms sites. Many reuse one national list of limits that has not been checked against the statutes in years, and some ask for an e-mail address before they show a form.</p>
     <p>{VALUE}</p>
     <h2>Who publishes it</h2>
-    <p>The site is published by {AUTHOR_NAME}, a company that builds calculators on public data. It is an independent site, not a law firm, a court or a legal-forms seller. It gives no legal advice, represents no one, takes no referral fee, carries no affiliate link and asks for no contact details. The demand letter generator is free and runs in your browser.</p>
+    <p>The site is published by {AUTHOR_NAME}, a company based in France that builds calculators on public data. Every figure on this site comes from a U.S. state law or court page, and each page links to the one it comes from, so you can check it yourself. It is an independent site, not a law firm, a court or a legal-forms seller. It gives no legal advice, represents no one, takes no referral fee, carries no affiliate link and asks for no contact details. The demand letter generator is free and runs in your browser.</p>
     <LegalIdentity lang={lang} />
     <h2>What it relies on</h2>
-    <p>The statute or court rule that sets the small claims limit in each of the {N_STATES} jurisdictions, read on the legislature’s or the courts’ site; the self-help pages of state court systems; the fee schedules published by the courts of {nFee} jurisdictions; and the bills that changed a limit recently, such as Georgia’s HB 999 and Idaho’s S1330.</p>
+    <p>The statute or court rule that sets the small claims limit in each of the 50 states and the District of Columbia, read on the legislature’s or the courts’ site; the self-help pages of state court systems; the fee schedules published by the courts of {nFee} of them; and the bills that changed a limit recently, such as Georgia’s HB 999 and Idaho’s S1330.</p>
     <h2>What it leaves out</h2>
     <p>Advice about your own case, which only a lawyer can give; limitation periods, which vary by kind of claim and were not read; fees set county by county; and local rules of individual courts. The <a href={route('method', lang)}>method page</a> lists every simplification and the <a href={route('editorial', lang)}>editorial policy</a> explains corrections.</p>
     <h2>Contact</h2>

@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
-import { st, feeFor } from '../../lib/engine/claims';
+import { st, idx, feeFor } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('FL');
 export default definePage({
   id: 'florida-small-claims-court', group: 'states', order: 12, slug: 'florida-small-claims-court',
@@ -16,11 +16,11 @@ export default definePage({
 <h2>What Florida small claims court costs, step by step</h2>
 <p>Because the fee jumps at $2,500, a claim of $2,600 costs ${usd(feeFor(S, 2600)! - feeFor(S, 2400)!)} more to file than one of $2,400. If part of your claim is uncertain, it can be worth weighing whether to file the firm part alone. The fees below are the statutory maximum each clerk may charge; service of process is extra.</p>
 ${factsTable(h, 'FL')}
-${h.mini('cost', { title: 'The full cost of a Florida claim', defaults: { claim: 4000, fee: 295 } })}
+${h.mini('cost', { title: 'The full cost of a Florida claim', defaults: { st: idx('FL'), claim: 4000 }, locked: ['st'] })}
 <h2>The pretrial conference comes first</h2>
 <p>In Florida the summons calls both sides to a pretrial conference, not to a trial. The judge or a mediator asks whether the dispute can be settled; if it cannot, a trial date is set. A plaintiff who misses the pretrial conference risks dismissal, and a defendant who misses it risks a default judgment, so the first date matters as much as the trial itself.</p>
-<h2>Florida and its neighbours</h2>
-${neighboursTable(h, 'FL')}
+<h2>Florida and its neighbors</h2>
+${neighborsTable(h, 'FL')}
 <p>See also ${h.a('small-claims-court-filing-fee', 'the fee schedules of the other states')} and ${h.a('collecting-a-small-claims-judgment', 'how to collect after you win')}.</p>`,
   faqs: [
     { q: 'What is the maximum for small claims in Florida?', a: '$8,000, not counting costs, interest and attorney fees, under Rule 7.010(b) of the Florida Small Claims Rules. A larger claim goes to the county court’s regular civil docket. Many Florida small claims start with a pretrial conference, where the parties can settle before any trial is set.', open: true },

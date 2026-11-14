@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
-import { st, rankOf } from '../../lib/engine/claims';
+import { st, idx, rankOf } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('IN');
 export default definePage({
   id: 'indiana-small-claims-court', group: 'states', order: 24, slug: 'indiana-small-claims-court',
@@ -16,10 +16,10 @@ export default definePage({
 <h2>Staying inside the Indiana small claims court limit</h2>
 <p>If the claim is above ${usd(S.cap)}, you can cut it down to the limit and give up the rest, but you cannot split one debt into two claims to stay under the line. A landlord owed $14,000 of rent and repairs by one tenant has one claim, not two. Claims above the limit go to the regular civil docket.</p>
 ${factsTable(h, 'IN')}
-${h.mini('cost', { title: 'What an Indiana small claim costs you', defaults: { claim: 5000, fee: 97 } })}
-<p>The fee above uses Wabash County’s published $97 as an example; replace it with your county’s figure.</p>
-<h2>Indiana and its neighbours</h2>
-${neighboursTable(h, 'IN')}
+<p>Indiana fees differ by county, so the calculator leaves the fee empty: Wabash County, for example, publishes $97 for one defendant. Ask your county clerk and type the figure in.</p>
+${h.mini('cost', { title: 'What an Indiana small claim costs you', defaults: { st: idx('IN'), claim: 5000 }, locked: ['st'] })}
+<h2>Indiana and its neighbors</h2>
+${neighborsTable(h, 'IN')}
 <p>See ${h.a('michigan-small-claims-court', 'Michigan’s fee steps')} and ${h.a('small-claims-court-filing-fee', 'fees in other states')}.</p>`,
   faqs: [
     { q: 'What is the small claims limit in Indiana?', a: '$10,000 on the small claims docket of the Circuit or Superior Court. The same limit applies in every county. A larger claim goes to the regular civil docket, where formal rules apply and the case takes longer. You can also reduce the claim to fit.', open: true },

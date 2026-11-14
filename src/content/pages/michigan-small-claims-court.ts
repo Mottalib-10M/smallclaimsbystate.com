@@ -1,7 +1,7 @@
 import { definePage } from '../../lib/page-types';
 import { st, idx, rankOf } from '../../lib/engine/claims';
 import { usd } from '../../lib/fmt';
-import { factsTable, neighboursTable, stateSources, lockedState } from '../../lib/state-page';
+import { factsTable, neighborsTable, stateSources, lockedState } from '../../lib/state-page';
 const S = st('MI');
 export default definePage({
   id: 'michigan-small-claims-court', group: 'states', order: 20, slug: 'michigan-small-claims-court',
@@ -19,8 +19,8 @@ ${factsTable(h, 'MI')}
 ${h.mini('fee', { title: 'The Michigan fee for your amount', defaults: { st: idx('MI'), amount: 1800 }, locked: ['st'] })}
 <h2>How the limit grew</h2>
 <p>The steps from $5,000 to ${usd(S.cap)} took about twelve years. A case is measured by the limit in force on the day it is filed, so a claim of $6,800 filed in 2023 was too large and the same claim filed in 2024 fits.</p>
-<h2>Michigan and its neighbours</h2>
-${neighboursTable(h, 'MI')}
+<h2>Michigan and its neighbors</h2>
+${neighborsTable(h, 'MI')}
 <p>See ${h.a('small-claims-court-filing-fee', 'filing fees in other states')} or ${h.a('wisconsin-small-claims-court', 'Wisconsin’s two limits')}.</p>`,
   faqs: [
     { q: 'What is the small claims limit in Michigan in 2026?', a: '$7,000, in force since January 1, 2024, under MCL 600.8401. The figure rose in steps since 2012. A claim above it goes to the District Court’s general civil docket, where formal rules apply and lawyers may appear. Pages that still show $6,000 or $6,500 are out of date.', open: true },

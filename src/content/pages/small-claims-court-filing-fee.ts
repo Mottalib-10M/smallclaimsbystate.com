@@ -6,7 +6,7 @@ const county = STATES.filter((s) => !s.fee);
 const steps = (s: (typeof STATES)[number]) => s.fee!.map(([upTo, f], i) => (s.fee!.length === 1 ? `${usd(f)}` : i === 0 ? `${usd(f)} up to ${usd(Math.ceil(upTo))}` : `${usd(f)} up to ${usd(Math.min(upTo, s.cap))}`)).join(' · ');
 export default definePage({
   id: 'small-claims-court-filing-fee', group: 'guides', order: 4, slug: 'small-claims-court-filing-fee',
-  nav: 'Filing fees', card: 'The official fee schedules of 14 states, step by step, and where to ask in the others.',
+  nav: 'Filing fee, state by state', card: 'The official fee schedules of 14 states, step by step, and where to ask in the others.',
   title: 'Small Claims Court Filing Fee 2026: Official Fees by State',
   description: 'Small claims court filing fee in 2026: the schedules of 14 states by claim amount, from $10 in Wyoming, and how to find the fee where it is set locally.',
   h1: 'Small claims court filing fee in 2026, state by state',

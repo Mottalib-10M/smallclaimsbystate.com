@@ -1,11 +1,11 @@
 import { definePage } from '../../lib/page-types';
-import { STATES, st, ranking, median, countAtLeast, feeFor, limitFor, N_STATES, RETRIEVED } from '../../lib/engine/claims';
+import { STATES, st, ranking, median, countAtLeast, feeFor, feeLabel, limitFor, N_STATES, RETRIEVED } from '../../lib/engine/claims';
 import { usd, day } from '../../lib/fmt';
 const top = ranking()[0], low = ranking()[N_STATES - 1];
 const changed = STATES.filter((s) => s.next || ['ID', 'NE', 'MN', 'UT', 'MI'].includes(s.code));
 export default definePage({
   id: 'small-claims-court-limits', group: 'guides', order: 1, slug: 'small-claims-court-limits',
-  nav: 'Limits in all 51 jurisdictions', card: `From ${usd(low.cap)} in ${low.name} to ${usd(top.cap)}: every limit with its law.`,
+  nav: 'Limits of the 50 states and DC', card: `From ${usd(low.cap)} in ${low.name} to ${usd(top.cap)}: every limit with its law.`,
   title: 'Small Claims Court Limits 2026: Maximum Amount by State',
   description: 'Small claims court limits for 2026 in all 50 states and DC, read in each statute or court rule, with the court, the filing fee and the changes of 2026 and 2027.',
   h1: 'Small claims court limits by state in 2026',
@@ -15,7 +15,7 @@ export default definePage({
   body: (h) => `
 <h2>Small claims court limits of the 50 states and DC</h2>
 <p>The limit is the most a plaintiff can ask the court to award in a small claims case, usually not counting interest and court costs. In ${countAtLeast(10000)} jurisdictions it reaches ${usd(10000)} or more; in ${STATES.filter((s) => s.cap <= 5000).length} it is ${usd(5000)} or less. Where a state has no separate small claims court, the row gives the limit of the court that plays that role, such as the Justice of the Peace Court in Delaware or General Sessions in Tennessee.</p>
-${h.table(['State', 'Limit', 'Court', 'Fee at the limit', 'Law'], STATES.map((s) => { const f = feeFor(s, limitFor(s)); return [s.name, usd(s.cap) + (s.capBiz ? `<br><span class="text-xs">${usd(s.capBiz)} businesses</span>` : '') + (s.next ? `<br><span class="text-xs">${usd(s.next.cap)} from ${day(s.next.from)}</span>` : ''), s.court, f === null ? 'by county' : usd(f), h.ext(s.url, s.cite)]; }), `Small claims limits read on ${day(RETRIEVED)}`, ['l', 'r', 'l', 'r', 'l'])}
+${h.table(['State', 'Limit', 'Court', 'Fee at the limit', 'Law'], STATES.map((s) => { const f = feeFor(s, limitFor(s)); return [s.name, usd(s.cap) + (s.capBiz ? `<br><span class="text-xs">${usd(s.capBiz)} businesses</span>` : '') + (s.next ? `<br><span class="text-xs">${usd(s.next.cap)} from ${day(s.next.from)}</span>` : ''), s.court, f === null ? 'by county' : feeLabel(s, limitFor(s)), h.ext(s.url, s.cite)]; }), `Small claims limits read on ${day(RETRIEVED)}`, ['l', 'r', 'l', 'r', 'l'])}
 <h2>Limits that changed recently</h2>
 <p>A limit read in an old guide is the most common reason a claim is filed in the wrong court. These are the jurisdictions whose figure moved since 2024 or will move on a date already written into law.</p>
 <ul>${changed.map((s) => `<li><strong>${s.name}</strong>: ${s.note || `${usd(s.cap)} today`}</li>`).join('')}</ul>
