@@ -3,6 +3,7 @@
  * the cost of a suit, interest on a demand and the pace of a payment plan. Pure functions, no network.
  */
 import DATA from '../../data/states.json';
+import OTHER from '../../data/other-courts.json';
 
 export interface StateRow {
   code: string; name: string; slug: string; cap: number; capBiz: number | null;
@@ -71,3 +72,51 @@ export function payPlan(balance: number, monthly: number, ratePct = 0) {
 }
 /** Months left before a deadline of `years` counted from an event `monthsAgo` months back. */
 export function monthsLeft(years: number, monthsAgo: number) { return years * 12 - monthsAgo; }
+
+/* Courts other than small claims, read on 2026-11-14 (src/data/other-courts.json): defamation deadlines of eight
+ * states, the federal routes for money claims against the United States, New York's Court of Claims. */
+export const OTHER_COURTS = OTHER;
+export const OTHER_READ = OTHER.retrieved_at;
+export interface DefamationRow { code: string; years: number; cite: string; url: string }
+export const DEFAMATION: DefamationRow[] = OTHER.defamation;
+export const LITTLE_TUCKER_CAP = OTHER.federal.littleTucker.cap;
+export type Target = 'private' | 'state' | 'federal';
+export type Kind = 'money' | 'tort';
+export interface Route { court: string; first: string | null; law: string; deadline: string; small: boolean }
+const usd0 = (x: number) => `$${Math.round(x).toLocaleString('en-US')}`;
+/** Which court usually hears a money claim: small claims for a person or business sued for an amount under the
+ *  state's limit, the state's ordinary civil court above it; for the United States, the Court of Federal Claims
+ *  (contract and other money claims, also the district courts up to $10,000), or a written claim to the agency and
+ *  then the district court for injury or damage (Federal Tort Claims Act). Claims against a state follow that
+ *  state's own route (New York: the Court of Claims). */
+export function routeFor(s: StateRow, target: Target, kind: Kind, amount: number, party: Party = 'person'): Route {
+  const f = OTHER.federal;
+  if (target === 'federal') {
+    if (kind === 'tort') return { court: 'U.S. District Court, after a written claim to the agency', first: 'A written claim to the federal agency involved, then its answer or six months of silence', law: `${f.ftcaFirst.cite} and § 1346(b)(1)`, deadline: `${f.ftcaDeadline.years} years to present the claim (${f.ftcaDeadline.cite})`, small: false };
+    const both = amount <= LITTLE_TUCKER_CAP;
+    return { court: both ? 'U.S. Court of Federal Claims or U.S. District Court' : 'U.S. Court of Federal Claims', first: null, law: both ? `${f.tucker.cite} and ${f.littleTucker.cite}` : f.tucker.cite, deadline: `${f.cfcDeadline.years} years in the Court of Federal Claims (${f.cfcDeadline.cite})`, small: false };
+  }
+  if (target === 'state') {
+    if (s.code === 'NY') return { court: 'New York Court of Claims', first: null, law: OTHER.nyCourtOfClaims.cite, deadline: 'Short notice periods: Court of Claims Act § 10', small: false };
+    return { court: `${s.name}’s own route for claims against the state`, first: 'Ask the clerk or the attorney general’s office which body hears claims against the state', law: `${s.name} law on claims against the state`, deadline: 'Often shorter than for a private claim: ask first', small: false };
+  }
+  const cap = limitFor(s, party);
+  return amount <= cap
+    ? { court: `${s.court}`, first: 'A demand letter, then the claim form at the clerk', law: s.cite, deadline: 'Your state’s limitation period for the kind of claim', small: true }
+    : { court: `${s.name} regular civil court`, first: `Or cut the claim to the ${usd0(cap)} limit and give up the rest`, law: s.cite, deadline: 'Your state’s limitation period for the kind of claim', small: false };
+}
+/** What to write on the claim: the sum owed, other losses and simple interest, against the state's limit. */
+export function claimTotal(s: StateRow, o: { owed: number; other: number; ratePct: number; months: number; party?: Party }) {
+  const interest = o.owed * (o.ratePct / 100) * (o.months / 12);
+  const total = o.owed + o.other + interest;
+  const cap = limitFor(s, o.party ?? 'person');
+  return { interest, total, cap, fits: total <= cap, over: Math.max(0, total - cap) };
+}
+/** Copies to bring: each document once for the judge, once per defendant and once for yourself. */
+export function copiesNeeded(docs: number, defendants: number) { return { sets: 2 + defendants, sheets: docs * (2 + defendants) }; }
+/** Fees paid up front: the state's filing fee (null where the county sets it) plus service on each defendant. */
+export function upfrontFees(s: StateRow, amount: number, defendants: number, servicePer: number) {
+  const filing = feeFor(s, Math.min(amount, limitFor(s)));
+  const service = defendants * servicePer;
+  return { filing, service, total: filing === null ? null : filing + service };
+}

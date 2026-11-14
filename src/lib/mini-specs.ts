@@ -1,7 +1,7 @@
 /** Calculators of the site (RECETTE §9.3), one entry per subject. MiniSim renders them all: the full calculator at the
  *  top of each page and the mini-simulators inside the text. State field: 1-based index in STATES (engine). */
 import type { MiniSpec } from './mini-types';
-import { STATES, byIdx, check, feeFor, limitFor, suitCost, simpleInterest, payPlan, monthsLeft, RETRIEVED } from './engine/claims';
+import { STATES, byIdx, check, feeFor, limitFor, suitCost, simpleInterest, payPlan, monthsLeft, RETRIEVED, routeFor, claimTotal, copiesNeeded, upfrontFees, DEFAMATION, OTHER_READ, st } from './engine/claims';
 import { usd, num, pct, day } from './fmt';
 
 const stateOpts = STATES.map((s, i) => ({ value: String(i + 1), label: s.name }));
@@ -118,6 +118,125 @@ const SPECS: Record<string, (lang: string) => MiniSpec> = {
         head: ['Months left to file', m > 0 ? num(m) : 'None'],
         alert: m <= 0 ? 'The deadline has passed if it runs from that date: a court will usually dismiss a late claim if the defendant raises it.' : m <= 3 ? 'Less than three months: file now, before the demand letter’s deadline runs out.' : undefined,
         rows: [['Deadline', `${num(v.years)} years (${num(v.years * 12)} months)`], ['Already gone', `${num(v.ago)} months`]],
+      };
+    },
+  }),
+  court: () => ({
+    title: 'Which claims court hears your case?', cta: 'Back to the claims courts',
+    inputs: [
+      { id: 'target', label: 'Who you are suing', def: 1, options: [{ value: '1', label: 'A person or a business' }, { value: '2', label: 'A state or a state agency' }, { value: '3', label: 'The United States or a federal agency' }] },
+      { id: 'kind', label: 'What the claim is about', def: 1, options: [{ value: '1', label: 'Money owed, a contract, a refund' }, { value: '2', label: 'Injury or damage caused by someone' }] },
+      { id: 'amount', label: 'Amount you claim', def: 8000, unit: '$', max: 10_000_000 },
+      { ...stateIn(), showIf: (v: Record<string, number>) => v.target !== 3 },
+    ],
+    exemple: (v) => `Example for a ${usd(v.amount)} claim against ${v.target === 3 ? 'a federal agency' : v.target === 2 ? `a ${byIdx(v.st).name} agency` : `a person in ${byIdx(v.st).name}`}`,
+    run: (v) => {
+      const s = byIdx(v.st);
+      const r = routeFor(s, v.target === 3 ? 'federal' : v.target === 2 ? 'state' : 'private', v.kind === 2 ? 'tort' : 'money', v.amount);
+      return {
+        head: ['Court that usually hears it', r.court],
+        alert: r.first ?? undefined,
+        rows: [['Small claims?', r.small ? `Yes, under the ${usd(limitFor(s))} limit` : 'No'], ['Law', r.law], ['Deadline', r.deadline]],
+        note: `Laws read on ${day(OTHER_READ)}. General information, not legal advice.`,
+      };
+    },
+  }),
+  claimsum: () => ({
+    title: 'The amount to write on your claim', cta: 'Check the limit of your state',
+    inputs: [stateIn(),
+      { id: 'owed', label: 'Sum the other side owes you', def: 2800, unit: '$', max: 1_000_000 },
+      { id: 'other', label: 'Other losses you can prove', def: 300, unit: '$', max: 1_000_000, help: 'Repairs, replacement, costs caused by the dispute' },
+      { id: 'rate', label: 'Annual interest rate', def: 0, unit: '%', max: 50, decimals: 2, avance: true, help: 'The rate in your contract or your state’s legal rate; 0 if none' },
+      { id: 'months', label: 'Months since it was due', def: 6, unit: 'months', max: 240, avance: true }, partyIn],
+    exemple: (v) => `Example for ${usd(v.owed)} owed and ${usd(v.other)} of other losses in ${byIdx(v.st).name}`,
+    run: (v) => {
+      const s = byIdx(v.st); const c = claimTotal(s, { owed: v.owed, other: v.other, ratePct: v.rate, months: v.months, party: v.party === 2 ? 'business' : 'person' });
+      return {
+        head: ['Amount to claim', usd(c.total)],
+        alert: c.fits ? undefined : `${usd(c.over)} above the ${usd(c.cap)} limit of ${s.name}: claim the limit and give up the rest, or file in the regular civil court.`,
+        rows: [['Sum owed', usd(v.owed)], ['Other losses', usd(v.other)], ['Simple interest', usd(c.interest)], [`Limit in ${s.name}`, usd(c.cap)], ['Filing fee for this amount', feeText(feeFor(s, Math.min(c.total, c.cap)))]],
+      };
+    },
+  }),
+  fees: () => ({
+    title: 'Small claims court fees you pay up front', cta: 'Every filing fee schedule',
+    inputs: [stateIn(5),
+      { id: 'amount', label: 'Amount you claim', def: 3000, unit: '$', max: 1_000_000 },
+      { id: 'defs', label: 'Number of defendants', def: 1, max: 10 },
+      { id: 'serve', label: 'Service, per defendant', def: 40, unit: '$', max: 1000, help: 'Certified mail, sheriff or process server: ask the clerk' }],
+    exemple: (v) => `Example for a ${usd(v.amount)} claim against ${num(v.defs)} defendant${v.defs > 1 ? 's' : ''} in ${byIdx(v.st).name}`,
+    run: (v) => {
+      const s = byIdx(v.st); const f = upfrontFees(s, v.amount, v.defs, v.serve);
+      return {
+        head: ['Fees paid up front', f.total === null ? `${usd(f.service)} + county fee` : usd(f.total)],
+        alert: f.filing === null ? 'No statewide schedule: the clerk of the county court gives the filing fee.' : undefined,
+        rows: [['Filing fee', feeText(f.filing)], ['Service on the defendants', usd(f.service)], ['Usually added to the judgment if you win', 'Filing and service']],
+      };
+    },
+  }),
+  file: () => ({
+    title: 'Where and for how much you can file', cta: 'The steps to file',
+    inputs: [stateIn(), { id: 'amount', label: 'Amount you claim', def: 4000, unit: '$', max: 1_000_000 }, partyIn],
+    exemple: (v) => `Example for a ${usd(v.amount)} claim in ${byIdx(v.st).name}`,
+    run: (v) => {
+      const s = byIdx(v.st); const c = check(s, v.amount, v.party === 2 ? 'business' : 'person');
+      return {
+        head: [`File small claims in ${s.name} at`, s.court],
+        alert: c.fits ? undefined : `Over the ${usd(c.cap)} limit by ${usd(c.over)}: cut the claim or file in the regular civil court.`,
+        rows: [['Limit', usd(c.cap)], ['Filing fee for this amount', feeText(c.fee)], ['What you file', 'The claim form, a copy for each defendant and one for you']],
+        go: ['Official page for this state →', s.url],
+      };
+    },
+  }),
+  venue: () => ({
+    title: 'Which county’s small claims court?', cta: 'Back to finding a court',
+    inputs: [stateIn(),
+      { id: 'lives', label: 'Where the person or business you sue is', def: 2, options: [{ value: '1', label: 'In my county' }, { value: '2', label: 'In another county of my state' }, { value: '3', label: 'In another state' }] },
+      { id: 'where', label: 'Where the deal or the damage happened', def: 1, options: [{ value: '1', label: 'In my county' }, { value: '2', label: 'Where the other side is' }] }],
+    exemple: (v) => `Example in ${byIdx(v.st).name}, other side in ${v.lives === 3 ? 'another state' : v.lives === 2 ? 'another county' : 'your county'}`,
+    run: (v) => {
+      const s = byIdx(v.st);
+      const head = v.lives === 1 ? 'Your own county' : v.lives === 3 ? (v.where === 1 ? 'Your county, if the court can reach them' : 'The other side’s county, in their state') : (v.where === 1 ? 'Your county or theirs' : 'The other side’s county');
+      return {
+        head: ['Where you can usually file', head],
+        alert: v.lives === 3 ? 'Out of state: the limit and the fee of the state where you file are the ones that apply.' : undefined,
+        rows: [['Court', v.lives === 3 && v.where === 2 ? 'The small claims court of their state' : s.court], ['Who confirms it', 'The clerk of that court'], [`Limit in ${s.name}`, usd(limitFor(s))]],
+        note: 'Venue rules are set by each state; this is the usual pattern, not a ruling on your case.',
+      };
+    },
+  }),
+  papers: () => ({
+    title: 'Your small claims paperwork, counted', cta: 'Back to the paperwork',
+    inputs: [
+      { id: 'docs', label: 'Pages of evidence', def: 8, max: 500, help: 'Contract, receipts, photos, texts, estimates' },
+      { id: 'defs', label: 'Number of defendants', def: 1, max: 10 },
+      { id: 'wit', label: 'Witnesses you bring', def: 0, max: 20, avance: true }],
+    exemple: (v) => `Example for ${num(v.docs)} pages of evidence and ${num(v.defs)} defendant${v.defs > 1 ? 's' : ''}`,
+    run: (v) => {
+      const c = copiesNeeded(v.docs, v.defs);
+      return {
+        head: ['Sheets to print for the hearing', num(c.sheets)],
+        rows: [['Sets of evidence', `${num(c.sets)} (judge, each defendant, you)`], ['Claim form copies at filing', `${num(1 + v.defs + 1)} (original, each defendant, you)`], ['Witness statements or subpoenas', num(v.wit)]],
+        note: 'Some courts ask for evidence ahead of the hearing or online: the notice from the clerk says so.',
+      };
+    },
+  }),
+  defame: () => ({
+    title: 'Time left to sue for defamation', cta: 'Back to defamation',
+    inputs: [
+      { id: 'st', label: 'State', def: 9, options: [...DEFAMATION.map((d, i) => ({ value: String(i + 1), label: `${st(d.code).name} (${d.years} year${d.years > 1 ? 's' : ''})` })), { value: '9', label: 'Another state: enter its period' }] },
+      { id: 'years', label: 'Deadline in your state’s law', def: 1, unit: 'years', max: 10, showIf: (v: Record<string, number>) => v.st === 9 },
+      { id: 'ago', label: 'Months since the statement was published', def: 5, unit: 'months', max: 240 }],
+    exemple: (v) => `Example for a statement published ${num(v.ago)} months ago`,
+    run: (v) => {
+      const d = v.st >= 1 && v.st <= DEFAMATION.length ? DEFAMATION[v.st - 1] : null;
+      const years = d ? d.years : v.years;
+      const m = monthsLeft(years, v.ago);
+      return {
+        head: ['Months left to file', m > 0 ? num(m) : 'None'],
+        alert: m <= 0 ? 'The period has run out if it started on that date: a late suit is usually dismissed when the defendant raises it.' : m <= 3 ? 'Less than three months left.' : undefined,
+        rows: [['Deadline', `${num(years)} year${years > 1 ? 's' : ''}`], ['Law', d ? d.cite : 'The one you entered']],
+        note: `Read on ${day(OTHER_READ)}. When the period starts can differ (republication, discovery): ask a lawyer licensed in your state.`,
       };
     },
   }),

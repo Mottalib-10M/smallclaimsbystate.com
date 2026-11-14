@@ -3,6 +3,8 @@ import { ROUTES, route } from '../i18n/routes';
 const HOME_OF: Record<string, string> = {
   limit: 'small-claims-court-limits', fee: 'small-claims-court-filing-fee', cost: 'how-much-does-it-cost-to-sue-someone',
   interest: 'small-claims-demand-letter', collect: 'collecting-a-small-claims-judgment', deadline: 'how-to-sue-someone-in-small-claims-court',
+  court: 'claims-court', claimsum: 'how-to-take-someone-to-small-claims-court', fees: 'small-claims-court-fees', file: 'file-small-claims',
+  venue: 'small-claims-court-near-me', papers: 'small-claims-court-paperwork', defame: 'how-to-sue-someone-for-defamation-of-character',
 };
 export function miniHref(kind: string, here: string): string {
   const id = HOME_OF[kind];

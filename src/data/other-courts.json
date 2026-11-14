@@ -1,0 +1,26 @@
+{
+ "retrieved_at": "2026-11-14",
+ "defamation": [
+  { "code": "AZ", "years": 1, "cite": "Ariz. Rev. Stat. § 12-541", "url": "https://www.azleg.gov/ars/12/00541.htm" },
+  { "code": "CT", "years": 2, "cite": "Conn. Gen. Stat. § 52-597", "url": "https://www.cga.ct.gov/current/pub/chap_926.htm" },
+  { "code": "FL", "years": 2, "cite": "Fla. Stat. § 95.11(5)(h)", "url": "https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0095/Sections/0095.11.html" },
+  { "code": "MD", "years": 1, "cite": "Md. Code, Cts. & Jud. Proc. § 5-105", "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcj&section=5-105" },
+  { "code": "MN", "years": 2, "cite": "Minn. Stat. § 541.07(1)", "url": "https://www.revisor.mn.gov/statutes/cite/541.07" },
+  { "code": "NY", "years": 1, "cite": "N.Y. CPLR § 215(3)", "url": "https://www.nysenate.gov/legislation/laws/CVP/215" },
+  { "code": "VA", "years": 1, "cite": "Va. Code § 8.01-247.1", "url": "https://law.lis.virginia.gov/vacode/title8.01/chapter4/section8.01-247.1/" },
+  { "code": "WA", "years": 2, "cite": "Rev. Code Wash. § 4.16.100(1)", "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=4.16.100" }
+ ],
+ "federal": {
+  "tucker": { "cite": "28 U.S.C. § 1491(a)(1)", "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title28/html/USCODE-2023-title28-partIV-chap91-sec1491.htm" },
+  "littleTucker": { "cap": 10000, "cite": "28 U.S.C. § 1346(a)(2)", "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title28/html/USCODE-2023-title28-partIV-chap85-sec1346.htm" },
+  "cfcDeadline": { "years": 6, "cite": "28 U.S.C. § 2501", "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title28/html/USCODE-2023-title28-partVI-chap165-sec2501.htm" },
+  "ftcaDeadline": { "years": 2, "cite": "28 U.S.C. § 2401(b)", "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title28/html/USCODE-2023-title28-partVI-chap161-sec2401.htm" },
+  "ftcaFirst": { "cite": "28 U.S.C. § 2675(a)", "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title28/html/USCODE-2023-title28-partVI-chap171-sec2675.htm" }
+ },
+ "nyCourtOfClaims": { "cite": "N.Y. Court of Claims Act § 9", "url": "https://www.nysenate.gov/legislation/laws/CTC/9", "deadlineUrl": "https://www.nysenate.gov/legislation/laws/CTC/10" },
+ "losAngeles": { "url": "https://www.lacourt.org/division/smallclaims/smallclaims.aspx" },
+ "california": {
+  "fileUrl": "https://selfhelp.courts.ca.gov/small-claims/start-case/file",
+  "formUrl": "https://selfhelp.courts.ca.gov/jcc-form/SC-100"
+ }
+}
