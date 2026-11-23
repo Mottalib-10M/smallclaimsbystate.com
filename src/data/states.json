@@ -981,12 +981,15 @@
    "slug": "wisconsin",
    "cap": 10000,
    "capBiz": null,
-   "next": null,
+   "next": {
+    "cap": 15000,
+    "from": "2027-01-01"
+   },
    "court": "Circuit Court (small claims)",
-   "cite": "Wis. Stat. § 799.01",
+   "cite": "Wis. Stat. § 799.01, as amended by 2025 Wis. Act 105",
    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/799/01",
    "read": "index",
-   "note": "Tort and personal injury claims are limited to $5,000. The official text shows a change scheduled for January 1, 2027 that we could not read in full: check it before filing next year.",
+   "note": "2025 Wisconsin Act 105 raises the limit for debt, contract and replevin claims to $15,000 for actions commenced on or after January 1, 2027; tort and personal injury claims stay at $5,000.",
    "fee": null,
    "feeUrl": null,
    "feeNote": "",

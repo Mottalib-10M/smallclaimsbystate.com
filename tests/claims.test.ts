@@ -9,7 +9,7 @@ describe('data', () => {
   });
   it('keeps the limits read on 2026-11-13', () => {
     expect(st('TX').cap).toBe(20000); expect(st('CA').cap).toBe(12500); expect(st('CA').capBiz).toBe(6250);
-    expect(st('ID').cap).toBe(15000); expect(st('KY').cap).toBe(2500); expect(st('GA').next).toEqual({ cap: 25000, from: '2027-01-01' });
+    expect(st('ID').cap).toBe(15000); expect(st('KY').cap).toBe(2500); expect(st('GA').next).toEqual({ cap: 25000, from: '2027-01-01' }); expect(st('WI').next).toEqual({ cap: 15000, from: '2027-01-01' }); expect(limitFor(st('WI'), 'person', '2027-01-01')).toBe(15000);
   });
 });
 describe('engine', () => {
